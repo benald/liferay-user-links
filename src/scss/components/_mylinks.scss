@@ -1,0 +1,127 @@
+/* My Links Layout Classes
+****************************************************/
+.dev {
+  width: 400px;
+  margin: 100px auto 0;
+}
+
+.ml {
+
+  font-size: 13px;
+}
+
+.ml-float {
+  flex-wrap: wrap;
+}
+
+.ml-padded-no-gutters-x {
+  margin-left: -.5rem;
+  margin-right: -.5rem;
+  width: auto;
+}
+
+.ml-row {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  align-items: center !important;
+}
+
+.ml-col {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  min-height: 0;
+  position: relative;
+
+  a > i {
+    padding: 3px 5px;
+  }
+}
+
+.ml-col-expand {
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 3.125rem;
+  word-wrap: break-word;
+}
+
+.ml-float > .ml-col {
+  max-width: 100%;
+}
+
+.ml-padded-no-gutters-x > .ml-col {
+  padding: .25rem .5rem;
+}
+
+.ml-row-center > .ml-col {
+  justify-content: center;
+}
+
+.ml-section {
+  max-width: 100%;
+  padding-left: 15px;
+
+  a {
+    color: $primary;
+    font-size: 0.875rem;
+    text-decoration: none;
+    &:hover,
+    &:focus,
+    &:active {
+      color: darken($primary, 4%);
+      text-decoration: underline;
+    }
+  }
+}
+
+.ml-info-circle {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 50px;
+  font-size: 20px;
+  color: $white;
+  line-height: 100px;
+  text-align: center;
+  border: 1px solid #B0B0B0;
+  margin-bottom: 20px;
+}
+
+.ml-add-item {
+    border: 0;
+    line-height: 1.429;
+    padding-left: 25px;
+    position: relative;
+    border-radius: 0;
+    margin-bottom: 0;
+    //margin: 3px;
+    border: 1px dashed #D7D7D7;
+    background: #F3F3F3 !important;
+    border-radius: 3px;
+    text-align: center;
+    padding: 0.25rem;
+    background-color: $white;
+    border-bottom: 1px solid #d7d7d7;
+    text-align: -webkit-match-parent;
+
+    a {
+        text-decoration: none;
+        color: #007b84;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .ml-footnote__item {
+        display: none;
+        position: relative;
+        font-size: 75%;
+        line-height: 0;
+        vertical-align: baseline;
+        top: -.5em;
+    }
+}
+
+

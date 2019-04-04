@@ -1,0 +1,12 @@
+.collapse {
+  transition: all 1s ease 250ms;
+  &.in {
+    @include fadeIn(
+    $duration: 50ms,
+    $delay: 0s,
+    $function: ease-in-out,
+    $fill: both
+  );
+  }
+
+}

@@ -1,0 +1,185 @@
+
+/* Stickers
+****************************************************/
+
+.ml-sticker {
+  align-items: center;
+  border-radius: 0.25rem;
+  height: 2rem;
+  line-height: 2rem;
+  width: 2rem;
+  display: inline-flex;
+  font-size: 1rem;
+  font-weight: 700;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  vertical-align: middle; }
+  .ml-sticker .ml-icon {
+    display: block;
+    height: 100%;
+    margin: auto; }
+  .ml-sticker > .ml-inline-item .ml-icon {
+    margin-top: 0; }
+  .ml-sticker.rounded .ml-sticker-overlay {
+    border-radius: 0.25rem; }
+  .ml-sticker.rounded-circle .ml-sticker-overlay {
+    border-radius: 5000px; }
+  .ml-sticker.rounded-0 .ml-sticker-overlay {
+    border-radius: 0; }
+
+.ml-sticker-overlay {
+  align-items: center;
+  border-radius: 0.25rem;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0; }
+
+.ml-sticker-bottom-left {
+  bottom: 1rem;
+  left: 1rem;
+  position: absolute;
+  right: auto;
+  top: auto; }
+
+.ml-sticker-bottom-right {
+  bottom: 1rem;
+  left: auto;
+  position: absolute;
+  right: 1rem;
+  top: auto; }
+
+.ml-sticker-top-left {
+  left: 1rem;
+  position: absolute;
+  top: 1rem; }
+
+.ml-sticker-top-right {
+  left: auto;
+  position: absolute;
+  right: 1rem;
+  top: 1rem; }
+
+.ml-sticker-outside {
+  left: -1rem;
+  top: -1rem; }
+  .ml-sticker-outside.ml-sticker-bottom-left {
+    bottom: -1rem;
+    top: auto; }
+  .ml-sticker-outside.ml-sticker-bottom-right {
+    bottom: -1rem;
+    left: auto;
+    right: -1rem;
+    top: auto; }
+  .ml-sticker-outside.ml-sticker-top-right {
+    left: auto;
+    right: -1rem; }
+
+.ml-sticker-user-icon {
+  background-color: #FFF;
+  border-radius: 5000px;
+  box-shadow: 0 0 0 1px #E7E7ED; }
+  .ml-sticker-user-icon .ml-sticker-overlay {
+    border-radius: 5000px; }
+
+.ml-sticker-sm {
+  font-size: 0.75rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  width: 1.5rem; }
+  .ml-sticker-sm.ml-sticker-outside {
+    left: -0.75rem;
+    top: -0.75rem; }
+    .ml-sticker-sm.ml-sticker-outside.ml-sticker-bottom-left {
+      bottom: -0.75rem;
+      top: auto; }
+    .ml-sticker-sm.ml-sticker-outside.ml-sticker-bottom-right {
+      bottom: -0.75rem;
+      left: auto;
+      right: -0.75rem;
+      top: auto; }
+    .ml-sticker-sm.ml-sticker-outside.ml-sticker-top-right {
+      left: auto;
+      right: -0.75rem; }
+
+.ml-sticker-lg {
+  font-size: 1.25rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  width: 2.5rem; }
+  .ml-sticker-lg.ml-sticker-outside {
+    left: -1.25rem;
+    top: -1.25rem; }
+    .ml-sticker-lg.ml-sticker-outside.ml-sticker-bottom-left {
+      bottom: -1.25rem;
+      top: auto; }
+    .ml-sticker-lg.ml-sticker-outside.ml-sticker-bottom-right {
+      bottom: -1.25rem;
+      left: auto;
+      right: -1.25rem;
+      top: auto; }
+    .ml-sticker-lg.ml-sticker-outside.ml-sticker-top-right {
+      left: auto;
+      right: -1.25rem; }
+
+.ml-sticker-xl {
+  font-size: 1.5rem;
+  height: 3rem;
+  line-height: 3rem;
+  width: 3rem; }
+  .ml-sticker-xl.ml-sticker-outside {
+    left: -1.5rem;
+    top: -1.5rem; }
+    .ml-sticker-xl.ml-sticker-outside.ml-sticker-bottom-left {
+      bottom: -1.5rem;
+      top: auto; }
+    .ml-sticker-xl.ml-sticker-outside.ml-sticker-bottom-right {
+      bottom: -1.5rem;
+      left: auto;
+      right: -1.5rem;
+      top: auto; }
+    .ml-sticker-xl.ml-sticker-outside.ml-sticker-top-right {
+      left: auto;
+      right: -1.5rem; }
+
+.ml-sticker-primary {
+  background-color: #FFF;
+  color: #0B5FFF; }
+
+.ml-sticker-secondary {
+  background-color: #FFF;
+  color: #6B6C7E; }
+
+.ml-sticker-success {
+  background-color: #FFF;
+  color: #287D3D; }
+
+.ml-sticker-info {
+  background-color: #FFF;
+  color: #2E5AAC; }
+
+.ml-sticker-warning {
+  background-color: #FFF;
+  color: #B95000; }
+
+.ml-sticker-danger {
+  background-color: #FFF;
+  color: #DA1414; }
+
+.ml-sticker-light {
+  background-color: #FFF;
+  color: #272833; }
+
+.ml-sticker-dark {
+  background-color: #272833;
+  color: #FFF; }
+
+.ml-sticker-circle,
+.ml-sticker-circle .ml-sticker-overlay {
+  border-radius: 5000px; }
+

@@ -1,0 +1,52 @@
+{
+  "user-links": [
+    {
+      "id": 17,
+      "url": "https://material.angular.io/",
+      "title": "material angular",
+      "linkType": "External",
+      "linkUUid": "",
+      "linkTitle": ""
+    },
+    {
+      "id": 27,
+      "url": "https://www.imdb.com/title/tt4154796",
+      "title": "End Game",
+      "linkType": "External",
+      "linkUUid": "98989",
+      "linkTitle": "hjuhjhj"
+    },
+    {
+      "id": 28,
+      "url": "cxvbcvb",
+      "title": "vfxdcbcb",
+      "linkType": "Ikon",
+      "linkUUid": 45687956,
+      "linkTitle": "Liferay Article: Service title"
+    },
+    {
+      "id": 29,
+      "url": "",
+      "title": "",
+      "linkType": "Ikon",
+      "linkUUid": 44556689,
+      "linkTitle": "Liferay Article: Web Article"
+    },
+    {
+      "id": 30,
+      "url": "https://www.imdb.com/title/tt0944947/",
+      "title": "Game of Thrones",
+      "linkType": "External",
+      "linkUUid": 0,
+      "linkTitle": ""
+    },
+    {
+      "id": 31,
+      "url": "",
+      "title": "",
+      "linkType": "",
+      "linkUUid": 0,
+      "linkTitle": ""
+    }
+  ]
+}

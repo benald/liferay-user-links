@@ -1,0 +1,28 @@
+.btn-link {
+  border-radius: 1px;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.btn-info,
+.btn-delete {
+
+  background: transparent;
+  outline: 0;
+  border: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: transparent;
+    outline: 0;
+    border: none;
+  }
+}
+
+#addLink {
+
+  &.btn-link {
+    text-decoration: underline;
+  }
+}

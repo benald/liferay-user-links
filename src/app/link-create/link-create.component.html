@@ -1,0 +1,58 @@
+<div class="modal-header">
+  <div class="modal-title">Add custom link item</div>
+  <button type="button" class="close-modal" aria-label="Close" (click)="modalRef.hide()">
+    <svg class="ml-icon ml-icon-navigation-close" focusable="false" role="presentation">
+        <use href="/assets/icons.svg#navigation-close" />
+      </svg>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="container-fluid">
+    <form id="createLinkForm" class="needs-validation" novalidate>
+      <div class="form-row">
+        <div class="col-12">
+          <p class="text-danger">{{ linkDetails | json }}</p>
+        </div>
+      </div>
+      <label for="mlType" class="invisible">Link Type</label>
+      <input type="hidden" id="mlType" class="form-control" name="mlType" value="External">
+      <div class="form-row">
+        <div class="form-group col-7">
+          <label for="mlTitle" class="mlLabel">Link Title<span>*</span></label>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-7">
+          <input type="text" id="mlTitle"  class="form-control" name="mlTitle" placeholder="e.g. Google search" required  minlength="3" [(ngModel)]="linkDetails.title" #name="ngModel">
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Please provide a title</div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-7">
+          <label for="mlUrl" class="mlLabel">Web address<span>*</span></label>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-7">
+          <input type="text" id="mlUrl" [(ngModel)]="linkDetails.url" name="mlUrl" class="form-control" placeholder="e.g. https://google.com" required>
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Please provide a valid url</div>
+        </div>
+        <div class="form-group col-3">
+          <button type="button" class="btn btn-link" placement="right" tooltip="Please enter the full URL. (including protocol ie: http, https, ftp)">
+            <svg class="ml-icon ml-icon-information-outline" focusable="false" role="presentation">
+                <use href="/assets/icons.svg#information-outline" />
+              </svg>
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" (click)="modalRef.hide()">Cancel</button>
+  <button type="submit" class="btn btn-primary" (click)="addLink()">Create</button>
+</div>
+
