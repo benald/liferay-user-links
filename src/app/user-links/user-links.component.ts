@@ -15,17 +15,11 @@ import { Router } from '@angular/router';
 export class UserLinksComponent implements OnInit {
 
   Link: any = [];
-
   modalRef: BsModalRef;
 
   // Toggle Info Panel
   isCollapsed = true;
   isOpen = false;
-
-  // title: '';
-  // linkTitle: '';
-
-  private confirmModal: BsModalRef;
 
   constructor(
     public restApi: RestApiService,
@@ -44,17 +38,33 @@ export class UserLinksComponent implements OnInit {
     });
   }
 
-   openCreateLinkModal() {
+  // Delete Link
+  deleteLink(id: any) {
+    if (window.confirm('Are you sure, you want to delete?')) {
+      this.restApi.deleteLink(id).subscribe(data => {
+        this.loadLinks();
+      });
+    }
+  }
+
+  openCreateLinkModal() {
     this.modalRef = this.modalService.show(LinkCreateComponent, { class: 'modal-lg' });
   }
 
-  openEditLinkModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(LinkEditComponent, { class: 'modal-lg' });
-    // this.router.navigateByUrl('/user-links/{{ link.id }}', { skipLocationChange: true });
+  openEditLinkModal(linkId: any) {
+    const initialState = {
+      id: linkId
+    };
+    this.modalRef = this.modalService.show(LinkEditComponent, {initialState} );
+    this.modalRef.content.closeBtnName = 'Close';
   }
 
-  openDeleteLinkModal() {
-    this.modalRef = this.modalService.show(LinkDeleteComponent, {  });
+  openDeleteLinkModal(linkId: any) {
+    const initialState = {
+      id: linkId
+    };
+    this.modalRef = this.modalService.show(LinkDeleteComponent, {initialState} );
+    this.modalRef.content.closeBtnName = 'Close';
   }
 
   openLinkSettingsModal() {
@@ -62,16 +72,7 @@ export class UserLinksComponent implements OnInit {
   }
 
   cancel() {
-    this.confirmModal.hide();
-  }
-
-  // Delete Link
-  deleteLink(id) {
-    if (window.confirm('Are you sure, you want to delete?')) {
-      this.restApi.deleteLink(id).subscribe(data => {
-        this.loadLinks();
-      });
-    }
+    this.modalRef.hide();
   }
 
 }

@@ -1,7 +1,7 @@
 <form class="editLinkForm">
   <div class="modal-header">
     <h4 class="modal-title pull-left">Update Link</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="decline()">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -24,8 +24,6 @@
         <div class="form-row">
           <div class="form-group col-7">
             <input type="text" id="mlTitle" [(ngModel)]="linkData.title" class="form-control" name="mlTitle" placeholder="e.g. Google search" required>
-            <div class="valid-feedback">Looks good!</div>
-            <div class="invalid-feedback">Please provide a title</div>
           </div>
         </div>
         <div class="form-row">
@@ -36,8 +34,6 @@
         <div class="form-row">
           <div class="form-group col-7">
             <input type="text" id="mlUrl" [(ngModel)]="linkData.url" name="mlUrl" class="form-control" placeholder="e.g. https://google.com" required>
-            <div class="valid-feedback">Looks good!</div>
-            <div class="invalid-feedback">Please provide a valid url</div>
           </div>
           <div class="form-group col-3">
             <button type="button" class="btn btn-link" placement="right" tooltip="Please enter the full URL. (including protocol ie: http, https, ftp)">
@@ -51,7 +47,7 @@
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-default" (click)="decline()">Close</button>
+    <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Close</button>
     <button type="submit" class="btn btn-success" (click)="updateLink()">Update</button>
   </div>
 </form>

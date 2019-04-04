@@ -20,6 +20,7 @@ import { ListInformationComponent } from './list-information/list-information.co
 import { LinkDeleteComponent } from './link-delete/link-delete.component';
 import { LinkSettingsComponent } from './link-settings/link-settings.component';
 import { ExternalUrlDirective } from './shared/external-url.directive';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ExternalUrlDirective } from './shared/external-url.directive';
     ListInformationComponent,
     LinkDeleteComponent,
     LinkSettingsComponent,
-    ExternalUrlDirective
+    ExternalUrlDirective,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { ExternalUrlDirective } from './shared/external-url.directive';
     TooltipModule.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent, LinkCreateComponent, LinkEditComponent, LinkDeleteComponent, LinkSettingsComponent]
+  bootstrap: [AppComponent, ModalComponent, LinkCreateComponent, LinkEditComponent, LinkDeleteComponent, LinkSettingsComponent],
+  exports: [ModalComponent]
 })
 
 export class AppModule { }

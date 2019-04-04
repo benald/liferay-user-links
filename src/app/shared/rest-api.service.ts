@@ -34,6 +34,7 @@ export class RestApiService {
         catchError(this.handleError)
       );
   }
+  // HttpClient API get() method => Fetch links list
   getLinks(): Observable<Link> {
     return this.http.get<Link>(this.apiURL + '/user-links')
       .pipe(
@@ -41,6 +42,8 @@ export class RestApiService {
         catchError(this.handleError)
       );
   }
+
+  // HttpClient API put() method => Update link
   updateLink(id, link): Observable<Link> {
     return this.http.put<Link>(this.apiURL + '/user-links/' + id, JSON.stringify(link), this.httpOptions)
       .pipe(
@@ -48,15 +51,19 @@ export class RestApiService {
         catchError(this.handleError)
       );
   }
-  deleteLink(id) {
-    return this.http.delete<Link>(this.apiURL + '/user-links/' + id, this.httpOptions)
+
+ // HttpClient API post() method => Create link
+  createLink(link): Observable<Link> {
+    return this.http.post<Link>(this.apiURL + '/user-links', JSON.stringify(link), this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)
       );
   }
-  createLink(link): Observable<Link> {
-    return this.http.post<Link>(this.apiURL + '/user-links', JSON.stringify(link), this.httpOptions)
+  
+  // HttpClient API delete() method => Delete link
+  deleteLink(id) {
+    return this.http.delete<Link>(this.apiURL + '/user-links/' + id, this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)
@@ -65,16 +72,16 @@ export class RestApiService {
 
   // Error handling
   handleError(error) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      // Get client-side error
-      errorMessage = error.error.message;
-    } else {
-      // Get server-side error
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    window.alert(errorMessage);
-    return throwError(errorMessage);
+     let errorMessage = '';
+     if (error.error instanceof ErrorEvent) {
+       // Get client-side error
+       errorMessage = error.error.message;
+     } else {
+       // Get server-side error
+       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+     }
+     window.alert(errorMessage);
+     return throwError(errorMessage);
   }
 
 }

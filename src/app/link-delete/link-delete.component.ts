@@ -1,40 +1,44 @@
-import { Component  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ModalComponent } from '../modal/modal.component';
 import { RestApiService } from '../shared/rest-api.service';
-import { BsModalRef } from 'ngx-bootstrap/modal';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-link-delete',
   templateUrl: './link-delete.component.html',
   styleUrls: ['./link-delete.component.scss']
 })
-export class LinkDeleteComponent {
+export class LinkDeleteComponent implements OnInit {
 
-  Link: any = [];
+   id: any;
+   message: string;
+   linkData: any = {};
 
-  linkData: any = {};
+   constructor(
+     public restApi: RestApiService,
+     public actRoute: ActivatedRoute,
+     public router: Router,
+     public bsModalRef: BsModalRef,
+     private modalService: BsModalService
+   ) {
+   }
 
-  constructor(
-    public bsModalRef: BsModalRef,
-    public restApi: RestApiService
-  ) { }
+   ngOnInit() {
+     this.restApi.getLink(this.id).subscribe((data: {}) => {
+       this.linkData = data;
+     })
+     setTimeout(() => {
+       this.openDeleteLinkModal();
+     }, 10);
+   }
 
-  // Get Links list
-  loadLinks() {
-    return this.restApi.getLinks().subscribe((data: {}) => {
-      this.Link = data;
-    });
-  }
-
-  // Delete Link
-  deleteLink(id) {
-    this.restApi.deleteLink(id).subscribe(data => {
-      this.loadLinks();
-    });
-    this.bsModalRef.hide();
-  }
-
-  decline(): void {
-    this.bsModalRef.hide();
-  }
-
+   openDeleteLinkModal() {
+     const initialState = {
+       id2: this.id,
+       linkData2: this.linkData,
+       className: 'LinkDeleteComponent'
+     };
+     this.bsModalRef = this.modalService.show(ModalComponent, {initialState});
+   }
 }

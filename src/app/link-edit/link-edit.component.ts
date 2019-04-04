@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
-import { ActivatedRoute, Router } from '@angular/router';
 import { RestApiService } from '../shared/rest-api.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal/';
+import { ModalComponent } from '../modal/modal.component';
+import { AppConstants } from '../shared/constants';
 
 @Component({
   selector: 'app-link-edit',
@@ -11,34 +13,33 @@ import { RestApiService } from '../shared/rest-api.service';
 
 export class LinkEditComponent implements OnInit {
 
-  id = this.actRoute.snapshot.params['id'];
-  // id = this.id;
-
+  // id = this.actRoute.snapshot.params['id'];
+  id: any;
+  message: string;
   linkData: any = {};
 
-  selectedValue: '';
+  // selectedValue: '';
 
   constructor(
-    public bsModalRef: BsModalRef,
     public restApi: RestApiService,
     public actRoute: ActivatedRoute,
-    public router: Router
+    public router: Router,
+    public bsModalRef: BsModalRef,
+    private modalService: BsModalService
   ) { }
 
   ngOnInit() {
-    console.log(this.id);
     this.restApi.getLink(this.id).subscribe((data: {}) => {
       this.linkData = data;
-    });
+    })
   }
-
-  // Update link data
-  updateLink() {
-    this.restApi.updateLink(this.id, this.linkData).subscribe(data => {
-        this.router.navigate(['/user-links']);
-      });
-  }
-  decline(): void {
-    this.bsModalRef.hide();
+  
+   openModalWithComponent() {
+    const initialState = {
+      id2: this.id,
+      linkData2: this.linkData,
+      className: 'LinkEditComponent'
+    };
+    this.bsModalRef = this.modalService.show(ModalComponent, {initialState});
   }
 }

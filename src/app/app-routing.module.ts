@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LinkCreateComponent } from './link-create/link-create.component';
+import { LinkEditComponent } from './link-edit/link-edit.component';
 import { UserLinksComponent } from './user-links/user-links.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'user-links' },
+  { path: 'create-link', component: LinkCreateComponent },
   { path: 'user-links', component: UserLinksComponent },
-  { path: 'user-links/:id', component: UserLinksComponent }
+  { path: 'link-edit/:id', component: LinkEditComponent }
 ];
 
 @NgModule({
