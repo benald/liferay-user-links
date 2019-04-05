@@ -6,7 +6,7 @@
 // Color system
 
 $white:    #fff;
-// $gray-100: #f8f9fa;
+$gray-100: #f8f9fa;
 // $gray-200: #e9ecef;
 // $gray-300: #dee2e6;
 // $gray-400: #ced4da;
@@ -38,12 +38,12 @@ $black:    #000;
 // $indigo:  #6610f2;
 // $purple:  #6f42c1;
 // $pink:    #e83e8c;
-// $red:     #dc3545;
+$red:     #DB504A;
 // $orange:  #fd7e14;
-// $yellow:  #ffc107;
-// $green:   #28a745;
+$yellow:  #DB7C26;
+$green:   #417B5A;
 $teal:    #007b84;
-// $cyan:    #17a2b8;
+$cyan:    #05668D;
 $form-text-color: #7f7f7f;
 $modal-border: #979797;
 $form-btn-bg: #D7D7D7;
@@ -57,14 +57,14 @@ $theme-colors: (
   "input-color": #7f7f7f
 );
 
-$primary:         $teal;
-$secondary:       $dark-grey;
-// $success:       $green;
-// $info:          $cyan;
-// $warning:       $yellow;
-// $danger:        $red;
-// $light:         $gray-100;
-// $dark:          $gray-800;
+$primary:       $teal;
+$secondary:     $dark-grey;
+$success:       $green;
+$info:          $cyan;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $gray-100;
+$dark:          $dark;
 
 // $theme-colors: ();
 // // stylelint-disable-next-line scss/dollar-variable-default

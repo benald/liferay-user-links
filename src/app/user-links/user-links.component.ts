@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../shared/rest-api.service';
 import { BsModalRef, BsModalService  } from 'ngx-bootstrap';
 import { LinkCreateComponent } from './../link-create/link-create.component';
@@ -18,8 +18,8 @@ export class UserLinksComponent implements OnInit {
   modalRef: BsModalRef;
 
   // Toggle Info Panel
-  isCollapsed = true;
-  isOpen = false;
+  public showInfo = false;
+  isCollapsed = false;
 
   constructor(
     public restApi: RestApiService,
@@ -29,6 +29,10 @@ export class UserLinksComponent implements OnInit {
 
   ngOnInit() {
     this.loadLinks();
+  }
+
+  toggleInfo() {
+    this.showInfo = !this.showInfo;
   }
 
   // Get Links list
@@ -47,10 +51,12 @@ export class UserLinksComponent implements OnInit {
     }
   }
 
+  // Open Create Link Modal
   openCreateLinkModal() {
     this.modalRef = this.modalService.show(LinkCreateComponent, { class: 'modal-lg modal-dialog-centered' });
   }
 
+  // Open Edit Link Modal
   openEditLinkModal(linkId: any) {
     const initialState = {
       id: linkId
@@ -58,6 +64,7 @@ export class UserLinksComponent implements OnInit {
     this.modalRef = this.modalService.show(LinkEditComponent, {initialState, class: 'modal-lg modal-dialog-centered'} );
   }
 
+  // Open Delete Link Modal
   openDeleteLinkModal(linkId: any) {
     const initialState = {
       id: linkId
@@ -65,10 +72,12 @@ export class UserLinksComponent implements OnInit {
     this.modalRef = this.modalService.show(LinkDeleteComponent, {initialState, class: 'modal-lg modal-dialog-centered'} );
   }
 
+  // Open Link Settings Modal
   openLinkSettingsModal() {
     this.modalRef = this.modalService.show(LinkSettingsComponent, { class: 'modal-lg modal-dialog-centered' });
   }
 
+  // Close Modal function
   cancel() {
     this.modalRef.hide();
   }

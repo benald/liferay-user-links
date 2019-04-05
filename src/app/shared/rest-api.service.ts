@@ -11,7 +11,7 @@ import { retry, catchError } from 'rxjs/operators';
 export class RestApiService {
 
   // Define API
-  apiURL = 'http://localhost:3001';
+  apiURL = 'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
 

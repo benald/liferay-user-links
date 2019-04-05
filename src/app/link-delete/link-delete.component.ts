@@ -27,7 +27,7 @@ export class LinkDeleteComponent implements OnInit {
    ngOnInit() {
      this.restApi.getLink(this.id).subscribe((data: {}) => {
        this.linkData = data;
-     })
+     });
      setTimeout(() => {
        this.openDeleteLinkModal();
      }, 10);

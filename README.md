@@ -11,7 +11,7 @@ Run `npm install` to install required dependencies.
 
 Run `ng serve --open --port` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-Run 'json-server --watch ./server/db.json' to spin up the JSON REST server
+Run `json-server --watch ./server/db.json` to spin up the JSON REST server
 
 ## Code scaffolding
 

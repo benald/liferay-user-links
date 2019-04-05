@@ -1,4 +1,8 @@
 {
+  "info": {
+    "heading": "This is the user assist heading",
+    "lead": "This is the user assist lead text"
+  },
   "user-links": [
     {
       "id": 29,
@@ -13,6 +17,29 @@
       "url": "https://www.imdb.com/title/tt0944947/",
       "title": "Game of Thrones",
       "linkType": "External",
+      "linkUUid": 0,
+      "linkTitle": ""
+    },
+    {
+      "id": 18,
+      "linkType": "External",
+      "title": "BBC Sport",
+      "url": "http://www.bbc.com/sport/football",
+      "linkUUid": ""
+    },
+    {
+      "id": 31,
+      "linkType": "External",
+      "url": "http://www.amazon.com",
+      "title": "Amazon",
+      "linkUUid": 0,
+      "linkTitle": ""
+    },
+    {
+      "id": 32,
+      "linkType": "External",
+      "url": "https://coolors.co/",
+      "title": "coolors",
       "linkUUid": 0,
       "linkTitle": ""
     }

@@ -21,19 +21,19 @@ export class LinkEditComponent implements OnInit {
   // selectedValue: '';
 
   constructor(
-    public restApi: RestApiService,
-    public actRoute: ActivatedRoute,
-    public router: Router,
-    public bsModalRef: BsModalRef,
+    public restApi:       RestApiService,
+    public actRoute:      ActivatedRoute,
+    public router:        Router,
+    public bsModalRef:    BsModalRef,
     private modalService: BsModalService
   ) { }
 
   ngOnInit() {
     this.restApi.getLink(this.id).subscribe((data: {}) => {
       this.linkData = data;
-    })
+    });
   }
-  
+
    openModalWithComponent() {
     const initialState = {
       id2: this.id,
