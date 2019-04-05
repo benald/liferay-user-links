@@ -1,8 +1,8 @@
 export class Link {
   id: number;
-  linkType: string;
+  linkType: string; // type
   title: string;
   url: string;
-  linkUUid: string;
-  linkTitle: string;
+  linkUUid: string; // UUid
+  linkTitle: string; // customTitle
 }
