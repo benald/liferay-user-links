@@ -16,46 +16,37 @@
       </div>
       <label for="mlType" class="invisible">Link Type</label>
       <input type="hidden" id="mlType" class="form-control" name="mlType" value="External">
-      <div class="form-row">
-        <div class="form-group col-7">
-          <label for="mlTitle" class="mlLabel">Link Title<span>*</span></label>
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col-7">
+            <label for="mlTitle" class="mlLabel">Link Title<span>*</span></label>
+          </div>
         </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-7">
-          <input id="mlTitle" name="mlTitle" class="form-control" placeholder="e.g. Google search" minlength="3" required  
-          [(ngModel)]="linkDetails.title" [ngModelOptions]="{updateOn: 'blur'}">
-          <div *ngIf="linkDetails.title.invalid && (linkDetails.title.dirty || linkDetails.title.touched)" class="alert alert-danger">
-            <div *ngIf="linkDetails.title.errors.required">
-              Name is required.
-            </div>
-            <div *ngIf="linkDetails.title.errors.minlength">
-              Name must be at least 3 characters long.
-            </div>
-            <div *ngIf="linkDetails.title.errors.forbiddenName">
-              Title cannot be Title.
-            </div>
+        <div class="form-row">
+          <div class="col-7">
+            <input type="text" [(ngModel)]="linkDetails.title" id="mlTitle" class="form-control" name="mlTitle" placeholder="e.g. Google search" required  minlength="3">
           </div>
         </div>
       </div>
-      <div class="form-row">
-        <div class="form-group col-7">
-          <label for="mlUrl" class="mlLabel">Web address<span>*</span></label>
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col-7">
+            <label for="mlUrl" class="mlLabel">Web address<span>*</span></label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-7">
+            <input type="text" id="mlUrl" [(ngModel)]="linkDetails.url" name="mlUrl" class="form-control" placeholder="e.g. https://google.com" required>
+          </div>
+          <div class="form-group col-3">
+            <button type="button" class="btn btn-link" placement="right" tooltip="Please enter the full URL. (including protocol ie: http, https, ftp)">
+              <svg class="ml-icon ml-icon-information-outline" focusable="false" role="presentation">
+                  <use href="/assets/icons.svg#information-outline" />
+                </svg>
+            </button>
+          </div>
         </div>
       </div>
-      <div class="form-row">
-        <div class="form-group col-7">
-          <input type="text" id="mlUrl" [(ngModel)]="linkDetails.url" name="mlUrl" class="form-control" placeholder="e.g. https://google.com" required>
-        </div>
-        <div class="form-group col-3">
-          <button type="button" class="btn btn-link" placement="right" tooltip="Please enter the full URL. (including protocol ie: http, https, ftp)">
-            <svg class="ml-icon ml-icon-information-outline" focusable="false" role="presentation">
-                <use href="/assets/icons.svg#information-outline" />
-              </svg>
-          </button>
-        </div>
-      </div>
-
     </form>
   </div>
 </div>
