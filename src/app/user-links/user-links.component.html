@@ -55,9 +55,9 @@
 
     <!-- BEGIN: My Links List -->
     <ul class="list-group list-group-flush">
+
       <!-- BEGIN: My Link Item-->
       <li *ngFor="let link of Link" class="list-group-item" id="linkItem-{{ link.id }}">
-
         <div class="ml-row">
           <div class="ml-col">
             <div class="btn-group">
@@ -97,34 +97,35 @@
             </div>
           </div>
         </div>
-
       </li>
       <!-- END: My Link Item-->
+
     </ul>
     <!-- END: My Links List -->
 
-    </div>
-    <!-- END: IF -->
+  </div>
+  <!-- END: IF -->
 
-    <!-- BEGIN: My Links Footer -->
-    <div class="card-footer">
-      <div class="ml-add-item">
-        <div class="text-center">
-          <button type="button" class="btn btn-link" (click)="openCreateLinkModal()">
-            <svg class="ml-icon ml-icon-navigation-plus" focusable="false" role="presentation">
-              <use href="/assets/icons.svg#navigation-plus" />
-            </svg>
-            <span>Add link</span>
-          </button>
-          <!--  Reactive Form Trigger
-            <button type="button" class="btn btn-primary" (click)="openExampleFormModal()">
-            <svg class="ml-icon ml-icon-navigation-plus" focusable="false" role="presentation">
-              <use href="/assets/icons.svg#navigation-plus" />
-            </svg>
-            <span class="sr-only">Example Form</span>
-          </button-->
-        </div>
+  <!-- BEGIN: My Links Footer -->
+  <div class="card-footer">
+    <div class="ml-add-item">
+      <div class="text-center">
+        <button type="button" class="btn btn-link" (click)="openCreateLinkModal()">
+          <svg class="ml-icon ml-icon-navigation-plus" focusable="false" role="presentation">
+            <use href="/assets/icons.svg#navigation-plus" />
+          </svg>
+          <span>Add link</span>
+        </button>
+        <!--  Reactive Form Trigger
+          <button type="button" class="btn btn-primary" (click)="openExampleFormModal()">
+          <svg class="ml-icon ml-icon-navigation-plus" focusable="false" role="presentation">
+            <use href="/assets/icons.svg#navigation-plus" />
+          </svg>
+          <span class="sr-only">Example Form</span>
+        </button-->
       </div>
     </div>
-    <!-- END: My Links Footer -->
   </div>
+
+  <!-- END: My Links Footer -->
+</div>
