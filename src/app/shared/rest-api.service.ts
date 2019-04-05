@@ -11,7 +11,7 @@ import { retry, catchError } from 'rxjs/operators';
 export class RestApiService {
 
   // Define API
-  apiURL = 'http://localhost:3000';
+  apiURL = 'http://localhost:3001';
 
   constructor(private http: HttpClient) { }
 
@@ -60,7 +60,7 @@ export class RestApiService {
         catchError(this.handleError)
       );
   }
-  
+
   // HttpClient API delete() method => Delete link
   deleteLink(id) {
     return this.http.delete<Link>(this.apiURL + '/user-links/' + id, this.httpOptions)

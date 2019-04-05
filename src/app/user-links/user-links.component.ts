@@ -48,27 +48,25 @@ export class UserLinksComponent implements OnInit {
   }
 
   openCreateLinkModal() {
-    this.modalRef = this.modalService.show(LinkCreateComponent, { class: 'modal-lg' });
+    this.modalRef = this.modalService.show(LinkCreateComponent, { class: 'modal-lg modal-dialog-centered' });
   }
 
   openEditLinkModal(linkId: any) {
     const initialState = {
       id: linkId
     };
-    this.modalRef = this.modalService.show(LinkEditComponent, {initialState} );
-    this.modalRef.content.closeBtnName = 'Close';
+    this.modalRef = this.modalService.show(LinkEditComponent, {initialState, class: 'modal-lg modal-dialog-centered'} );
   }
 
   openDeleteLinkModal(linkId: any) {
     const initialState = {
       id: linkId
     };
-    this.modalRef = this.modalService.show(LinkDeleteComponent, {initialState} );
-    this.modalRef.content.closeBtnName = 'Close';
+    this.modalRef = this.modalService.show(LinkDeleteComponent, {initialState, class: 'modal-lg modal-dialog-centered'} );
   }
 
   openLinkSettingsModal() {
-    this.modalRef = this.modalService.show(LinkSettingsComponent, { class: 'modal-xl' });
+    this.modalRef = this.modalService.show(LinkSettingsComponent, { class: 'modal-lg modal-dialog-centered' });
   }
 
   cancel() {
