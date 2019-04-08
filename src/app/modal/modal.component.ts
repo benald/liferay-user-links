@@ -22,26 +22,24 @@ export class ModalComponent implements OnInit {
   linkData2: any = {};
   className: any;
   Link: any = [];
-  
+
   ngOnInit() {
     console.log(this.id2);
     console.log(this.linkData2);
   }
-  
+
   loadLinks() {
     return this.restApi.getLinks().subscribe((data: {}) => {
       this.Link = data;
     });
   }
-  
 
   confirm(): void {
-    console.log(this.linkData2)
+    console.log(this.linkData2);
     this.message = 'Confirmed!';
     this.bsModalRef.hide();
     if (this.className === 'LinkEditComponent') {
-      this.restApi.updateLink(this.id2, this.linkData2).subscribe(data => {
-      })
+      this.restApi.updateLink(this.id2, this.linkData2).subscribe(data => {});
       setTimeout(() => {
         window.location.reload();
       }, 1000);
@@ -58,4 +56,5 @@ export class ModalComponent implements OnInit {
     this.bsModalRef.hide();
     window.location.reload();
   }
+  
 }

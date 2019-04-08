@@ -17,8 +17,11 @@ export class UserLinksComponent implements OnInit {
   Link: any = [];
   modalRef: BsModalRef;
 
-  // Toggle Info Panel
+  public show = false;
+  public buttonName = 'Show';
   public showInfo = false;
+
+  // Toggle Info Panel
   isCollapsed = false;
 
   constructor(
@@ -29,6 +32,11 @@ export class UserLinksComponent implements OnInit {
 
   ngOnInit() {
     this.loadLinks();
+  }
+
+  // Toggle edit components
+  toggleEditControls() {
+    this.show = !this.show;
   }
 
   toggleInfo() {

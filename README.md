@@ -37,11 +37,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ##TUTORIALS
 
 https://www.thetechieshouse.com/angular-4-form-validation-with-example/
-
 https://stackoverflow.com/questions/51181412/angular-6-with-bootstrap-4-form-validation-e-mail
-
 https://angular.io/guide/form-validation#control-status-css-classes
-
 https://www.techiediaries.com/angular-bootstrap/
-
 https://valor-software.com/ngx-bootstrap

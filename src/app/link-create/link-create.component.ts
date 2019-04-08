@@ -13,6 +13,8 @@ import { Refreshable } from '../shared/refreshable';
 
 export class LinkCreateComponent implements OnInit, Refreshable {
 
+ // model: any = {};
+
   @Input()
 
   linkDetails = {  id: 0,  linkType: 'External', url: '', title: '', linkUUid: 0,  linkTitle: '' };

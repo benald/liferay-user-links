@@ -18,7 +18,7 @@
           </button>
         </div>
         <div class="ml-col">
-          <button type="button" class="btn-link btn-delete" (click)="openLinkSettingsModal()">
+          <button type="button" class="btn-link btn-delete" (click)="toggleEditControls()">
             <svg class="ml-icon ml-icon-cog" focusable="false" role="presentation">
               <use href="/assets/icons.svg#cog" />
             </svg>
@@ -60,14 +60,24 @@
 
         <div class="ml-row">
           <div class="ml-col">
-            <div class="btn-group">
-              <button type="button" class="btn-link btn-delete" (click)="openDeleteLinkModal(link.id)" title="Delete Link">
+            <ng-container *ngIf="!show">
+              <div class="ml-sticker ml-sticker-secondary"> 
+                <div calss="ml-inline-item">
+                  <svg class="ml-icon ml-icon-arrow-chevron-thin-right" focusable="false" role="presentation">
+                    <use href="/assets/icons.svg#arrow-chevron-thin-right" />
+                  </svg>
+                  <span class="sr-only">Arrow Icon</span>
+                </div>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="show">
+              <button type="button" class="btn-link btn-delete" (click)="openDeleteLinkModal(link.id)" title="Delete Link" ng-show="editControls">
                 <svg class="ml-icon ml-icon-navigation-close" focusable="false" role="presentation">
                   <use href="/assets/icons.svg#navigation-close" />
                 </svg>
                 <span class="sr-only">Delete Link</span>
               </button>
-            </div>
+            </ng-container>
           </div>
           <div class="ml-col ml-col-expand">
             <div class="ml-section">
@@ -86,8 +96,8 @@
               </div>
             </div>
           </div>
-          <div class="ml-col">
-            <div class="btn-group">
+          <ng-container *ngIf="show">
+            <div class="ml-col">
               <button type="button" class="btn-link" (click)="openEditLinkModal(link.id)">
                 <svg class="ml-icon ml-icon-pencil" focusable="false" role="presentation">
                   <use href="/assets/icons.svg#pencil" />
@@ -95,9 +105,16 @@
                 <span class="sr-only">Edit Link</span>
               </button>
             </div>
-          </div>
+            <div class="ml-col">
+              <button type="button" class="btn-link">
+                <svg class="ml-icon ml-icon-reorder" focusable="false" role="presentation">
+                  <use href="/assets/icons.svg#reorder" />
+                </svg>
+                <span class="sr-only">Edit Link</span>
+              </button>
+            </div>
+          </ng-container>
         </div>
-
       </li>
       <!-- END: My Link Item-->
     </ul>
@@ -116,13 +133,6 @@
             </svg>
             <span>Add link</span>
           </button>
-          <!--  Reactive Form Trigger
-            <button type="button" class="btn btn-primary" (click)="openExampleFormModal()">
-            <svg class="ml-icon ml-icon-navigation-plus" focusable="false" role="presentation">
-              <use href="/assets/icons.svg#navigation-plus" />
-            </svg>
-            <span class="sr-only">Example Form</span>
-          </button-->
         </div>
       </div>
     </div>

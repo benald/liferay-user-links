@@ -11,7 +11,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Forms module
 import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
 
 // Components
 import { LinkEditComponent } from './link-edit/link-edit.component';
@@ -41,7 +40,6 @@ import { ModalComponent } from './modal/modal.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
     ModalModule.forRoot(),
     CollapseModule.forRoot(),
     SortableModule.forRoot(),

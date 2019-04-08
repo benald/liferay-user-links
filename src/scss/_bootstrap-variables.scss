@@ -34,37 +34,38 @@ $black:    #000;
 //   $grays
 // );
 
-// $blue:    #007bff;
-// $indigo:  #6610f2;
-// $purple:  #6f42c1;
-// $pink:    #e83e8c;
-$red:     #DB504A;
-// $orange:  #fd7e14;
-$yellow:  #DB7C26;
-$green:   #417B5A;
-$teal:    #007b84;
-$cyan:    #05668D;
-$form-text-color: #7f7f7f;
-$modal-border: #979797;
-$form-btn-bg: #D7D7D7;
-$dark-grey:  #434343;
-$dark:  #333333;
+// $blue:                #007bff;
+// $indigo:              #6610f2;
+// $purple:              #6f42c1;
+// $pink:                #e83e8c;
+$red:                 #DB504A;
+// $orange:              #fd7e14;
+$yellow:              #DB7C26;
+$green:               #417B5A;
+$teal:                #007b84;
+$cyan:                #05668D;
+$modal-border:        #979797;
+$form-btn-bg:         #D7D7D7;
+$dark-grey:           #434343;
+$dark:                #333333;
+$input-text-color:    #7f7f7f;
+$input-border-color:  #C9C9C9;
 
 
 $theme-colors: (
-  "primary": #007b84,
-  "secondary": #434343,
-  "input-color": #7f7f7f
+  "primary":          #007b84,
+  "secondary":        #434343,
+  "input-color":      #7f7f7f
 );
 
-$primary:       $teal;
-$secondary:     $dark-grey;
-$success:       $green;
-$info:          $cyan;
-$warning:       $yellow;
-$danger:        $red;
-$light:         $gray-100;
-$dark:          $dark;
+$primary:             $teal;
+$secondary:           $dark-grey;
+$success:             $green;
+$info:                $cyan;
+$warning:             $yellow;
+$danger:              $red;
+$light:               $gray-100;
+$dark:                $dark;
 
 // $theme-colors: ();
 // // stylelint-disable-next-line scss/dollar-variable-default
@@ -427,7 +428,7 @@ $input-padding-x:                          1rem; // $input-btn-padding-x;
 // $input-bg:                              $white;
 // $input-disabled-bg:                     $gray-200;
 
-$input-color:                              $form-text-color;
+$input-color:                              $input-text-color;
 $input-border-color:                       $primary;
 $input-border-width:                    $input-btn-border-width;
 // $input-box-shadow:                      inset 0 1px 1px rgba($black, .075);

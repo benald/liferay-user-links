@@ -5,15 +5,20 @@
     height: 0;
   }
 
+  input[type=text] {
+
+    border-color: $input-border-color;
+    
+    &:focus {
+      border-color: $primary;
+    }
+    
+  }
+
 }
 
 // Validation 
-.ng-valid[required], .ng-valid.required  {
-  border: 1px solid $primary;
-  border-bottom: 4px solid $primary; /* green */
-}
-
 .ng-invalid:not(form)  {
   border: 1px solid $danger;
-  border-bottom: 4px solid $danger; /* red */
+ // border-bottom: 4px solid $danger; /* red */
 }

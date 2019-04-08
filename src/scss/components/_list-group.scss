@@ -1,0 +1,13 @@
+.ml-list-group-item-flex {
+    display: flex;
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+
+.ml-list-group-item {
+    padding: 4px 0;
+}
+
+.ml-list-group-item-flex .ml-col .ml-sticker:only-child {
+    margin-top: .0625rem;
+}
