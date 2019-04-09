@@ -11,8 +11,8 @@ import { Info } from '../shared/info';
 export class ListInformationComponent {
 
   info: Info = {
-    heading: 'User assist Heading',
-    text: 'User assist paragraph'
+    heading: 'User assist heading text',
+    text: 'Placeholder text for the user assist information that will be supplied by the business area.'
   };
 
   constructor(

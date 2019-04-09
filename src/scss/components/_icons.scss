@@ -7,7 +7,7 @@
   width: 20px;
   fill: #B0B0B0;
   padding:3px 5px;
-  margin-top: -3px;
+  margin-top: 0px;
   pointer-events: none;
   vertical-align: middle;
 
@@ -17,10 +17,14 @@
 
   &.ml-icon-pencil,
   &.ml-icon-reorder,
-  &.ml-icon-navigation-close,
-  &.ml-icon-arrow-chevron-thin-right {
+  &.ml-icon-navigation-close {
     height: 18px;
     width: 18px;
+  }
+  &.ml-icon-arrow-chevron-thin-right {
+    height: 22px;
+    width: 22px;
+    padding: 2px 0;
 
   }
 
