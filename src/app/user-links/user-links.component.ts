@@ -64,6 +64,7 @@ export class UserLinksComponent implements OnInit {
     // this.restApi.getLinks<Link[]>.pipe(map(data => data.sort()))
     return this.restApi.getLinks().subscribe((data: {}) => {
       this.Link = data;
+      this.Link.sort((a,b) =>  this.sortBasedOnTitle(a,b));
     });
   }
 
@@ -107,6 +108,29 @@ export class UserLinksComponent implements OnInit {
     this.modalRef.hide();
   }
 
+  //modify the if else conditions as per your preference
+  sortBasedOnTitle(a: Link, b: Link): number {
+    if (a.title != null && b.title != null) {
+      return a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1;
+    } else if (a.title != null && b.title == null && b.linkTitle != null) {
+      return a.title.toLowerCase() > b.linkTitle.toLowerCase() ? 1 : -1;
+    } else if (a.title == null && a.linkTitle != null && b.title != null) {
+      return a.linkTitle.toLowerCase() > b.title.toLowerCase() ? 1 : -1;
+     } else if (a.title == null && a.linkTitle != null && b.title == null && b.linkTitle != null) {
+      return a.linkTitle.toLowerCase() > b.linkTitle.toLowerCase() ? 1 : -1;
+     }
+  }
+  // linksAvailable() {
+  //   // if (this.Link != null ) {
+  //   //   console.log(this.Link);
+  //   //   return true;
+  //   // }
+  //    if (this.Link.length == 0) {
+  //      console.log(this.Link.length);
+  //     return true;
+  //   }
+  //   else return false;
+  // }
  
 
 }

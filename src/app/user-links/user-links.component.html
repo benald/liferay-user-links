@@ -30,7 +30,7 @@
     <!-- END: My Links Header -->
 
     <!-- BEGIN: If -->
-    <div *ngIf="Link.length !== 0">
+    <!-- <div *ngIf="Link.length !== 0"> -->
 
       <!-- BEGIN: My Links Info Panel -->
       <div class="card-body collapse" id="infoPanel" [collapse]="isCollapsed" #collapse="bs-collapse">
@@ -57,7 +57,7 @@
       <ul class="list-group list-group-flush">
         
         <!-- BEGIN: My Link Item-->
-        <li *ngFor="let link of Link  | orderBy: order" class="list-group-item" id="linkItem-{{ link.id }}">
+        <li *ngFor="let link of Link" class="list-group-item" id="linkItem-{{ link.id }}">
 
           <div class="ml-row">
             <div class="ml-col"> 
@@ -124,7 +124,7 @@
       </ul>
       <!-- END: My Links List -->
 
-    </div>
+    <!-- </div> -->
     <!-- END: IF -->
 
     <!-- BEGIN: My Links Footer -->
