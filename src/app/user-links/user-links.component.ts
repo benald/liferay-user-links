@@ -8,6 +8,7 @@ import { LinkDeleteComponent } from './../link-delete/link-delete.component';
 import { LinkSettingsComponent } from './../link-settings/link-settings.component';
 import { Link } from '../shared/link';
 import { map } from 'rxjs/operators';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-user-links',
@@ -91,9 +92,9 @@ export class UserLinksComponent implements OnInit {
   }
 
   // Open Delete Link Modal
-  openDeleteLinkModal(linkId: any) {
+  openDeleteLinkModal(link: any) {
     const initialState = {
-      id: linkId
+      linkObject: link
     };
     this.modalRef = this.modalService.show(LinkDeleteComponent, {initialState, class: 'modal-lg modal-dialog-centered'} );
   }
