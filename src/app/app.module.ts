@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ModalModule, CollapseModule, SortableModule, TooltipModule  } from 'ngx-bootstrap';
-import { AppComponent } from './app.component';
+import { OrderModule } from 'ngx-order-pipe';
 
 // HttpClient module for RESTful API
 import { HttpClientModule } from '@angular/common/http';
@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 
 // Components
+import { AppComponent } from './app.component';
 import { LinkEditComponent } from './link-edit/link-edit.component';
 import { LinkCreateComponent } from './link-create/link-create.component';
 import { UserLinksComponent } from './user-links/user-links.component';
@@ -40,13 +41,22 @@ import { ModalComponent } from './modal/modal.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    OrderModule,
     ModalModule.forRoot(),
     CollapseModule.forRoot(),
     SortableModule.forRoot(),
     TooltipModule.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent, ModalComponent, LinkCreateComponent, LinkEditComponent, LinkDeleteComponent, LinkSettingsComponent],
+  bootstrap: [
+    AppComponent,
+    ModalComponent,
+    ListInformationComponent,
+    LinkCreateComponent,
+    LinkEditComponent,
+    LinkDeleteComponent,
+    LinkSettingsComponent
+  ],
   exports: [ModalComponent]
 })
 

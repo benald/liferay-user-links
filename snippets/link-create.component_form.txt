@@ -1,0 +1,126 @@
+<!-- BEGIN: TEMPLATE FORM -->
+<form id="createLinkForm" class="needs-validation" novalidate>
+
+  <!-- BEGIN: MODAL BODY -->
+  <div class="modal-body">
+
+    <!-- BEGIN: LAYOUT CONTAINER -->
+    <div class="container-fluid">
+
+      <!-- BEGIN: DEV JSON OUTPUT -->
+      <div class="form-row">
+        <div class="col-12">
+          <p class="text-danger">{{ linkDetails | json }}</p>
+        </div>
+      </div>
+      <!-- END: DEV JSON OUTPUT -->
+
+      <!-- BEGIN: HIDDEN LINKTYPE -->
+      <label for="mlType" class="invisible">Link Type</label>
+      <input type="hidden" id="mlType" class="form-control" name="mlType" value="External">
+      <!-- END: HIDDEN LINKTYPE -->
+
+      <!-- BEGIN: TITLE -->
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col-7">
+            <label for="mlTitle" class="mlLabel">Link Title<span>*</span></label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-7">
+            <input type="text" [(ngModel)]="linkDetails.title" id="mlTitle" class="form-control" name="mlTitle" placeholder="e.g. Google search" required  minlength="3">
+          </div>
+        </div>
+      </div>
+      <!-- END: TITLE -->
+
+      <!-- BEGIN: URL -->
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col-7">
+            <label for="mlUrl" class="mlLabel">Web address<span>*</span></label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-7">
+            <input type="text" id="mlUrl" [(ngModel)]="linkDetails.url" name="mlUrl" class="form-control" placeholder="e.g. https://google.com" required pattern="https?://.+"  required>
+          </div>
+          <div class="form-group col-3">
+            <button type="button" class="btn btn-link" placement="right" tooltip="Please enter the full URL. (including protocol ie: http, https, ftp)">
+              <svg class="ml-icon ml-icon-information-outline" focusable="false" role="presentation">
+                  <use href="/assets/icons.svg#information-outline" />
+                </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- END: URL -->
+
+    </div>
+    <!-- END: LAYOUT CONTAINER -->
+
+  </div>
+  <!-- END: MODAL BODY -->
+
+  <!-- END: MODAL FOOTER -->
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="decline()">Cancel</button>
+    <button type="submit" class="btn btn-primary" (click)="addLink()">Create</button>
+  </div>
+  <!-- END: MODAL FOOTER -->
+
+</form>
+<!-- END: TEMPLATE FORM -->
+
+<!-- BEGIN: REACTIVE FORM -->
+<form [formGroup]="linkForm" novalidate>
+    <div class="modal-body">
+      <div class="container-fluid">
+
+        <div class="form-row">
+          <div class="col-12">
+            <p class="text-danger">{{ linkDetails | json }}</p>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="mlType" class="invisible">Link Type</label>
+          <input type="hidden" id="mlType" class="form-control" name="mlType" value="External">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="mlTitle">Link Title: </label>
+            <input id="mlTitle" name="title" class="form-control" formControlName="title">
+          </div>
+        </div>
+        <div class="form-row">
+          <div *ngIf="linkForm.controls['title'].invalid && (linkForm.controls['title'].dirty || linkForm.controls['title'].touched)" class="alert alert-danger">
+              <div *ngIf="linkForm.controls['title'].errors.required">Name is required.</div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="mlUrl" class="center-block">Link Url: </label>
+            <input id="mlUrl" name="url" class="form-control" formControlName="url" required pattern="https?://.+" >
+            <div *ngIf="linkForm.controls['url'].invalid && (linkForm.controls['url'].dirty || linkForm.controls['url'].touched)" class="p-3 mb-2 bg-danger text-white w-100">
+                <div *ngIf="linkForm.controls['url'].errors.required">Url is required.</div>
+                <div *ngIf="linkForm.controls['url'].errors.pattern">Url must be valid!</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+
+        </div>
+
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" (click)="decline()">Cancel</button>
+      <!-- <button type="submit" class="btn btn-primary" (click)="addLink()">Create</button> -->
+      <button class="btn btn-primary" color="primary" type="submit" (click)="addLink()" [disabled]="linkForm.pristine || linkForm.invalid">Submit</button>
+    </div>
+</form>
+<!-- END: REACTIVE FORM -->

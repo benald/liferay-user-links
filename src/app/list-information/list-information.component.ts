@@ -1,12 +1,23 @@
 import { Component } from '@angular/core';
+// import { RestApiService } from '../shared/rest-api.service';
+import { Info } from '../shared/info';
 
 @Component({
   selector: 'app-list-information',
-  template: '<h3>{{infoHeading}}</h3><p>{{infoText}}</p>',
+  templateUrl: './list-information.component.html',
   styleUrls: ['./list-information.component.scss']
 })
+
 export class ListInformationComponent {
-  infoHeading = '';
-  infoText = 'You currently don’t have any items saved to ‘My Links’.';
+
+  info: Info = {
+    heading: 'User assist heading text',
+    text: 'Placeholder text for the user assist information that will be supplied by the business area.'
+  };
+
+  constructor(
+    // public restApi: RestApiService
+  ) { }
+
 
 }

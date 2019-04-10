@@ -11,7 +11,7 @@ import { retry, catchError } from 'rxjs/operators';
 export class RestApiService {
 
   // Define API
-  apiURL = 'http://localhost:3001';
+  apiURL = 'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
 
@@ -72,16 +72,16 @@ export class RestApiService {
 
   // Error handling
   handleError(error) {
-     let errorMessage = '';
-     if (error.error instanceof ErrorEvent) {
-       // Get client-side error
-       errorMessage = error.error.message;
-     } else {
-       // Get server-side error
-       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-     }
-     window.alert(errorMessage);
-     return throwError(errorMessage);
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // Get client-side error
+      errorMessage = error.error.message;
+    } else {
+      // Get server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    window.alert(errorMessage);
+    return throwError(errorMessage);
   }
 
 }

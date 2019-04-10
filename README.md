@@ -11,7 +11,7 @@ Run `npm install` to install required dependencies.
 
 Run `ng serve --open --port` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-Run 'json-server --watch ./server/db.json' to spin up the JSON REST server
+Run `json-server --watch ./server/db.json` to spin up the JSON REST server
 
 ## Code scaffolding
 
@@ -37,11 +37,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ##TUTORIALS
 
 https://www.thetechieshouse.com/angular-4-form-validation-with-example/
-
 https://stackoverflow.com/questions/51181412/angular-6-with-bootstrap-4-form-validation-e-mail
-
 https://angular.io/guide/form-validation#control-status-css-classes
-
 https://www.techiediaries.com/angular-bootstrap/
-
 https://valor-software.com/ngx-bootstrap

@@ -1,37 +1,53 @@
 /* Icons
 ****************************************************/
 .ml-icon {
+
   display: inline-block;
-  fill: currentColor;
   height: 20px;
-  margin-top: -3px;
-  pointer-events: none;
-  vertical-align: middle;
   width: 20px;
   fill: #B0B0B0;
   padding:3px 5px;
+  margin-top: 0px;
+  pointer-events: none;
+  vertical-align: middle;
+
   &:hover {
     fill: #505050;
   }
-  &.ml-icon-pencil {
-    padding: 5px 7px;
+
+  &.ml-icon-pencil,
+  &.ml-icon-reorder,
+  &.ml-icon-navigation-close {
+    height: 18px;
+    width: 18px;
   }
+  &.ml-icon-arrow-chevron-thin-right {
+    height: 22px;
+    width: 22px;
+    padding: 2px 0;
+
+  }
+
   &.ml-icon-cog {
     padding: 1px 2px;
     fill: #c7c7c7;
   }
+
   &.ml-icon-info-solid {
     fill: #505050;
   }
+
   &.ml-icon-bookmark-solid {
     height: 3em;
     width: 3em;
   }
+
   &.ml-icon-external-link {
     height: 0.75rem;
     width: 0.75rem;
     fill: $primary;
   }
+
 }
 
 .ml-quick-action-item .ml-icon {

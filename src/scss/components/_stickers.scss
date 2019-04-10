@@ -183,3 +183,20 @@
 .ml-sticker-circle .ml-sticker-overlay {
   border-radius: 5000px; }
 
+.ml-sticker > .ml-inline-item {
+  font-size: 1rem;
+}
+
+.ml-inline-item {
+  align-items: center;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.ml-inline-item .ml-inline-item {
+  display: inline;
+}
+
+.ml-inline-item .ml-icon {
+  margin-top: -.21429em;
+}

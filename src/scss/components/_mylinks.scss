@@ -1,6 +1,7 @@
 /* My Links Layout Classes
 ****************************************************/
 .dev {
+
   width: 400px;
   margin: 100px auto 0;
 }
@@ -11,16 +12,19 @@
 }
 
 .ml-float {
+
   flex-wrap: wrap;
 }
 
 .ml-padded-no-gutters-x {
+
   margin-left: -.5rem;
   margin-right: -.5rem;
   width: auto;
 }
 
 .ml-row {
+
   display: flex;
   flex-wrap: nowrap;
   width: 100%;
@@ -28,6 +32,7 @@
 }
 
 .ml-col {
+
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
@@ -37,9 +42,11 @@
   a > i {
     padding: 3px 5px;
   }
+
 }
 
 .ml-col-expand {
+
   flex-grow: 1;
   flex-shrink: 1;
   min-width: 3.125rem;
@@ -47,18 +54,22 @@
 }
 
 .ml-float > .ml-col {
+
   max-width: 100%;
 }
 
 .ml-padded-no-gutters-x > .ml-col {
+
   padding: .25rem .5rem;
 }
 
 .ml-row-center > .ml-col {
+
   justify-content: center;
 }
 
 .ml-section {
+
   max-width: 100%;
   padding-left: 15px;
 
@@ -73,9 +84,11 @@
       text-decoration: underline;
     }
   }
+
 }
 
 .ml-info-circle {
+
   border-radius: 50px;
   border: 1px solid #B0B0B0;
   color: $white;
@@ -89,35 +102,35 @@
 }
 
 .ml-add-item {
-    background-color: $white;
-    background: #F3F3F3 !important;
-    border-radius: 3px;
-    border: 0;
-    border: 1px dashed #D7D7D7;
-    line-height: 1.429;
-    margin: 0;
-    padding: 0;
+
+  background-color: $white;
+  background: #F3F3F3 !important;
+  border-radius: 3px;
+  border: 0;
+  border: 1px dashed #D7D7D7;
+  line-height: 1.429;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  text-align: -webkit-match-parent;
+  text-align: center;
+
+  a {
+      text-decoration: none;
+      color: #007b84;
+
+      &:hover {
+          text-decoration: underline;
+      }
+  }
+
+  .ml-footnote__item {
+    
+    display: none;
     position: relative;
-    text-align: -webkit-match-parent;
-    text-align: center;
-
-    a {
-        text-decoration: none;
-        color: #007b84;
-
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-
-    .ml-footnote__item {
-        display: none;
-        position: relative;
-        font-size: 75%;
-        line-height: 0;
-        vertical-align: baseline;
-        top: -.5em;
-    }
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
+    top: -.5em;
+  }
 }
-
-

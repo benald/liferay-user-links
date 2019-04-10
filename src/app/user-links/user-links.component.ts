@@ -1,38 +1,67 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { RestApiService } from '../shared/rest-api.service';
 import { BsModalRef, BsModalService  } from 'ngx-bootstrap';
 import { LinkCreateComponent } from './../link-create/link-create.component';
 import { LinkEditComponent } from './../link-edit/link-edit.component';
 import { LinkDeleteComponent } from './../link-delete/link-delete.component';
 import { LinkSettingsComponent } from './../link-settings/link-settings.component';
-import { Router } from '@angular/router';
+import { Link } from '../shared/link';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-links',
   templateUrl: './user-links.component.html',
   styleUrls: ['./user-links.component.scss']
 })
+
 export class UserLinksComponent implements OnInit {
 
   Link: any = [];
+  order: string = 'title';
+ 
   modalRef: BsModalRef;
+  isCollapsed = false;
 
-  // Toggle Info Panel
-  isCollapsed = true;
-  isOpen = false;
+  public show = false;
+  public buttonName = 'Show';
+  public showInfo = false;
 
   constructor(
     public restApi: RestApiService,
     private modalService: BsModalService,
     public router: Router
-  ) { }
+  ) { 
+  }
 
   ngOnInit() {
     this.loadLinks();
   }
 
+  // 
+  getLinkTitle() {
+    if (this.Link.linkTitle !== ''){
+      const myLinkTitle = this.Link.linkTitle;
+      console.log(this.Link.linkTitle);
+    } else {
+      const myLinkTitle = this.Link.title;
+      console.log(this.Link.title);
+    } 
+  }
+    
+
+  // Toggle edit components
+  toggleEditControls() {
+    this.show = !this.show;
+  }
+
+  toggleInfo() {
+    this.showInfo = !this.showInfo;
+  }
+
   // Get Links list
   loadLinks() {
+    // this.restApi.getLinks<Link[]>.pipe(map(data => data.sort()))
     return this.restApi.getLinks().subscribe((data: {}) => {
       this.Link = data;
     });
@@ -47,10 +76,12 @@ export class UserLinksComponent implements OnInit {
     }
   }
 
+  // Open Create Link Modal
   openCreateLinkModal() {
     this.modalRef = this.modalService.show(LinkCreateComponent, { class: 'modal-lg modal-dialog-centered' });
   }
 
+  // Open Edit Link Modal
   openEditLinkModal(linkId: any) {
     const initialState = {
       id: linkId
@@ -58,6 +89,7 @@ export class UserLinksComponent implements OnInit {
     this.modalRef = this.modalService.show(LinkEditComponent, {initialState, class: 'modal-lg modal-dialog-centered'} );
   }
 
+  // Open Delete Link Modal
   openDeleteLinkModal(linkId: any) {
     const initialState = {
       id: linkId
@@ -65,12 +97,16 @@ export class UserLinksComponent implements OnInit {
     this.modalRef = this.modalService.show(LinkDeleteComponent, {initialState, class: 'modal-lg modal-dialog-centered'} );
   }
 
+  // Open Link Settings Modal
   openLinkSettingsModal() {
     this.modalRef = this.modalService.show(LinkSettingsComponent, { class: 'modal-lg modal-dialog-centered' });
   }
 
+  // Close Modal function
   cancel() {
     this.modalRef.hide();
   }
+
+ 
 
 }

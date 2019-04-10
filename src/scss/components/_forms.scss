@@ -1,8 +1,23 @@
-#createLinkForm,
-#editLinkForm {
+#linkCreateForm,
+#linkEditForm {
 
   .invisible {
     height: 0;
   }
 
+  input[type=text] {
+
+    border-color: $input-border-color;
+    
+    &:focus {
+      border-color: $primary;
+    }
+    
+  }
+
+}
+
+// Validation 
+.ng-invalid:not(form)  {
+  border: 1px solid $danger;
 }

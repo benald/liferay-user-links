@@ -48,4 +48,8 @@ export class LinkSettingsComponent implements OnInit {
     this.modalRef.hide();
   }
 
+  deleteSelected(): void {
+    this.modalRef.hide();
+  }
+
 }
