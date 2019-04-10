@@ -120,17 +120,12 @@ export class UserLinksComponent implements OnInit {
       return a.linkTitle.toLowerCase() > b.linkTitle.toLowerCase() ? 1 : -1;
      }
   }
-  // linksAvailable() {
-  //   // if (this.Link != null ) {
-  //   //   console.log(this.Link);
-  //   //   return true;
-  //   // }
-  //    if (this.Link.length == 0) {
-  //      console.log(this.Link.length);
-  //     return true;
-  //   }
-  //   else return false;
-  // }
+  linksAvailable() {
+     if (this.Link.length == 0) {
+      return this.isCollapsed;
+    }
+    else return !this.isCollapsed;
+  }
  
 
 }

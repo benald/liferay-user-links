@@ -33,8 +33,8 @@
     <!-- <div *ngIf="Link.length !== 0"> -->
 
       <!-- BEGIN: My Links Info Panel -->
-      <div class="card-body collapse" id="infoPanel" [collapse]="isCollapsed" #collapse="bs-collapse">
-        <button type="button" class="btn-link float-right" (click)="collapse.hide()" aria-controls="infoPanel" aria-label="Close">
+      <div class="card-body collapse" id="infoPanel" [collapse]="linksAvailable()" #collapse="bs-collapse">
+        <button type="button" class="btn-link float-right" (click)="isCollapsed = !isCollapsed" aria-controls="infoPanel" aria-label="Close">
           <svg class="ml-icon ml-icon-navigation-close" focusable="false" role="presentation">
             <use href="/assets/icons.svg#navigation-close" />
           </svg>
