@@ -11,9 +11,8 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 })
 export class LinkDeleteComponent implements OnInit {
 
-   id: any;
    message: string;
-   linkData: any = {};
+   linkObject: any;
 
    constructor(
      public restApi: RestApiService,
@@ -25,20 +24,17 @@ export class LinkDeleteComponent implements OnInit {
    }
 
    ngOnInit() {
-     this.restApi.getLink(this.id).subscribe((data: {}) => {
-       this.linkData = data;
-     });
-     setTimeout(() => {
-       this.openDeleteLinkModal();
-     }, 10);
    }
 
-   openDeleteLinkModal() {
-     const initialState = {
-       id2: this.id,
-       linkData2: this.linkData,
-       className: 'LinkDeleteComponent'
-     };
-     this.bsModalRef = this.modalService.show(ModalComponent, {initialState});
+   delete() {
+    this.restApi.deleteLink(this.linkObject.id).subscribe(data => {});
+    setTimeout(() => {
+      window.location.reload();
+    }, 10);
    }
+   decline(): void {
+    this.message = 'Declined!';
+    this.bsModalRef.hide();
+    window.location.reload();
+  }
 }
