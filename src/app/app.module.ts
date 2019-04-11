@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalModule, CollapseModule, SortableModule, TooltipModule  } from 'ngx-bootstrap';
 import { OrderModule } from 'ngx-order-pipe';
 
@@ -38,6 +39,7 @@ import { ModalComponent } from './modal/modal.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

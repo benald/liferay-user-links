@@ -1,144 +1,137 @@
-  <!-- BEGIN: My Links Header -->
-  <div class="card">
-    <!-- END: My Links Header -->
-    <div class="card-header text-white bg-secondary">
-      <div class="ml-row">
-        <div class="ml-col ml-col-expand">
-          <div class="ml-section">My links</div>
-        </div>
-        <div class="ml-col">
-          <button type="button" class="btn-link btn-info"
-            (click)="isCollapsed = !isCollapsed"
-            [attr.aria-expanded]="!isCollapsed"
-            aria-controls="infoPanel">
-            <svg class="ml-icon ml-icon-information-solid" focusable="false" role="presentation">
-              <use href="/assets/icons.svg#information-solid" />
-            </svg>
-            <span class="sr-only">Collapse Information</span>
-          </button>
-        </div>
-        <div class="ml-col">
-          <button type="button" class="btn-link btn-delete" (click)="toggleEditControls()">
-            <svg class="ml-icon ml-icon-cog" focusable="false" role="presentation">
-              <use href="/assets/icons.svg#cog" />
-            </svg>
-            <span class="sr-only">Manage Links</span>
-          </button>
-        </div>
+<!-- BEGIN: My Links Header -->
+<div class="card">
+  <!-- END: My Links Header -->
+  <div class="card-header text-white bg-secondary">
+    <div class="ml-row">
+      <div class="ml-col ml-col-expand">
+        <div class="ml-section-title">My links</div>
+      </div>
+      <div class="ml-col">
+        <button type="button" class="btn-link btn-info"
+          (click)="isCollapsed = !isCollapsed"
+          [attr.aria-expanded]="!isCollapsed"
+          aria-controls="infoPanel">
+          <svg class="ml-icon ml-icon-information-solid" focusable="false" role="presentation">
+            <use href="/assets/icons.svg#information-solid" />
+          </svg>
+          <span class="sr-only">Collapse Information</span>
+        </button>
+      </div>
+      <div *ngIf="Link.length !== 0" class="ml-col">
+        <button type="button" class="btn-link btn-cog" (click)="toggleEditControls()">
+          <svg class="ml-icon ml-icon-cog" focusable="false" role="presentation">
+            <use href="/assets/icons.svg#cog" />
+          </svg>
+          <span class="sr-only">Manage Links</span>
+        </button>
       </div>
     </div>
-    <!-- END: My Links Header -->
+  </div>
+  <!-- END: My Links Header -->
 
-    <!-- BEGIN: If -->
-    <!-- <div *ngIf="Link.length !== 0"> -->
-
-      <!-- BEGIN: My Links Info Panel -->
-      <div class="card-body collapse" id="infoPanel" [collapse]="linksAvailable()" #collapse="bs-collapse">
-        <button type="button" class="btn-link float-right" (click)="isCollapsed = !isCollapsed" aria-controls="infoPanel" aria-label="Close">
-          <svg class="ml-icon ml-icon-navigation-close" focusable="false" role="presentation">
-            <use href="/assets/icons.svg#navigation-close" />
-          </svg>
-        </button>
+  <!-- BEGIN: My Links Info Panel -->
+  <div class="card-body collapse" id="infoPanel" [collapse]="linksAvailable()" #collapse="bs-collapse">
+    <button type="button" class="btn-link btn-close" (click)="isCollapsed = !isCollapsed" aria-controls="infoPanel" aria-label="Close">
+      <svg class="ml-icon ml-icon-navigation-close" focusable="false" role="presentation">
+        <use href="/assets/icons.svg#navigation-close" />
+      </svg>
+    </button>
+    <div class="row info-panel">
+      <div class="col-xs-12 col-sm-2 col-md-2 col-lg-1">
         <div class="ml-info-circle">
           <svg class="ml-icon ml-icon-bookmark-solid" focusable="false" role="presentation">
             <use href="/assets/icons.svg#bookmark-solid" />
           </svg>
         </div>
-        <div class="text-center">
-        <app-list-information></app-list-information>
-        </div>
-        <div class="text-center" >
-          <button id="addLink" class="btn btn-link" (click)="openCreateLinkModal()">Add your first item</button>
-        </div>
       </div>
-      <!-- END: My Links Info Panel -->
-      
-      <!-- BEGIN: My Links List -->
-      <ul class="list-group list-group-flush">
-        
-        <!-- BEGIN: My Link Item-->
-        <li *ngFor="let link of Link" class="list-group-item" id="linkItem-{{ link.id }}">
-
-          <div class="ml-row">
-            <div class="ml-col"> 
-              <ng-container *ngIf="!show">
-                <button type="button" class="btn-link btn-delete">
-                  <svg class="ml-icon ml-icon-arrow-chevron-thin-right" focusable="false" role="presentation">
-                    <use href="/assets/icons.svg#arrow-chevron-thin-right" />
-                  </svg>
-                  <span class="sr-only">Arrow Icon</span>
-                </button>
-              </ng-container>
-              <ng-container *ngIf="show">
-                <button type="button" class="btn-link btn-delete" (click)="openDeleteLinkModal(link)" title="Delete Link" ng-show="editControls">
-                  <svg class="ml-icon ml-icon-navigation-close" focusable="false" role="presentation">
-                    <use href="/assets/icons.svg#navigation-close" />
-                  </svg>
-                  <span class="sr-only">Delete Link</span>
-                </button>
-              </ng-container>
-            </div>
-            <div class="ml-col ml-col-expand">
-              <div class="ml-section">
-                <div *ngIf="link.linkType == 'External'">
-                  <a id="xlink-{{ link.id }}" title="{{ link.title }}" [href]="link.url" target="_blank">
-                    <span>{{ link.title }}</span>
-                    <span class='inline-item'>
-                      <svg aria-hidden='true' class='ml-icon ml-icon-external-link'>
-                        <use href='/assets/icons.svg#external-link'></use>
-                      </svg>
-                    </span>
-                  </a>
-                </div>
-                <div *ngIf="link.linkType === 'Ikon'">
-                  <div *ngIf="link.linkTitle !== ''; else elseBlock">
-                    <a id="ikonl-{{ link.id }}" title="{{ link.linkTitle }}" [href]="link.UUid">{{ link.linkTitle }}</a>
-                  </div>
-                  <ng-template #elseBlock>
-                    <a id="ikonl-{{ link.id }}" title="{{ link.title }}" [href]="link.UUid">{{ link.title }}</a>
-                  </ng-template>
-                </div>
-              </div>
-            </div>
-            <ng-container *ngIf="show">
-              <div class="ml-col">
-                <button type="button" class="btn-link" (click)="openEditLinkModal(link.id)">
-                  <svg class="ml-icon ml-icon-pencil" focusable="false" role="presentation">
-                    <use href="/assets/icons.svg#pencil" />
-                  </svg>
-                  <span class="sr-only">Edit Link</span>
-                </button>
-              </div>
-              <!--div class="ml-col">
-                <button type="button" class="btn-link">
-                  <svg class="ml-icon ml-icon-reorder" focusable="false" role="presentation">
-                    <use href="/assets/icons.svg#reorder" />
-                  </svg>
-                  <span class="sr-only">Edit Link</span>
-                </button>
-              </div-->
-            </ng-container>
+      <div class="col-xs-12 col-sm-8 col-md-8 add-link">
+        <div class="text-center text-sm-left">
+          <div *ngIf="Link.length !== 0">
+            <app-list-information class="card-info"></app-list-information>
           </div>
-        </li>
-        <!-- END: My Link Item-->
-      </ul>
-      <!-- END: My Links List -->
-
-    <!-- </div> -->
-    <!-- END: IF -->
-
-    <!-- BEGIN: My Links Footer -->
-    <div class="card-footer">
-      <div class="ml-add-item">
-        <div class="text-center">
-          <button type="button" class="btn btn-link" (click)="openCreateLinkModal()">
-            <svg class="ml-icon ml-icon-navigation-plus" focusable="false" role="presentation">
-              <use href="/assets/icons.svg#navigation-plus" />
-            </svg>
-            <span>Add link</span>
-          </button>
+          <div *ngIf="Link.length === 0">
+            <button id="addLink" class="btn btn-link" (click)="openCreateLinkModal()">Add your first item</button>
+          </div>
         </div>
       </div>
     </div>
-    <!-- END: My Links Footer -->
   </div>
+  <!-- END: My Links Info Panel -->
+  
+  <!-- BEGIN: My Links List -->
+  <ul class="list-group list-group-flush">
+    
+    <!-- BEGIN: My Link Item-->
+      <li *ngFor="let link of Link" class="list-group-item" id="linkItem-{{ link.id }}">
+
+      <div class="ml-row">
+        <div class="ml-col"> 
+          <ng-container *ngIf="!show">
+            <button type="button" class="btn-link btn-arrow">
+              <svg class="ml-icon ml-icon-arrow-chevron-thin-right" focusable="false" role="presentation">
+                <use href="/assets/icons.svg#arrow-chevron-thin-right" />
+              </svg>
+              <span class="sr-only">Arrow Icon</span>
+            </button>
+          </ng-container>
+          <ng-container *ngIf="show">
+              <button type="button" class="btn-link btn-delete" (click)="openDeleteLinkModal(link)" title="Delete Link" ng-show="editControls">
+              <svg class="ml-icon ml-icon-navigation-close" focusable="false" role="presentation">
+                <use href="/assets/icons.svg#navigation-close" />
+              </svg>
+              <span class="sr-only">Delete Link</span>
+            </button>
+          </ng-container>
+        </div>
+        <div class="ml-col ml-col-expand">
+          <div class="ml-section">
+            <div *ngIf="link.linkType == 'External'">
+              <a id="xlink-{{ link.id }}" title="{{ link.title }}" [href]="link.url" target="_blank">
+                <span>{{ link.title }}</span>
+                <span class='inline-item'>
+                  <svg aria-hidden='true' class='ml-icon ml-icon-external-link'>
+                    <use href='/assets/icons.svg#external-link'></use>
+                  </svg>
+                </span>
+              </a>
+            </div>
+            <div *ngIf="link.linkType === 'Ikon'">
+              <div *ngIf="link.linkTitle !== ''; else elseBlock">
+                <a id="ikonl-{{ link.id }}" title="{{ link.linkTitle }}" [href]="link.UUid">{{ link.linkTitle }}</a>
+              </div>
+              <ng-template #elseBlock>
+                <a id="ikonl-{{ link.id }}" title="{{ link.title }}" [href]="link.UUid">{{ link.title }}</a>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+        <ng-container *ngIf="show">
+          <div class="ml-col">
+            <button type="button" class="btn-link" (click)="openEditLinkModal(link.id)">
+              <svg class="ml-icon ml-icon-pencil" focusable="false" role="presentation">
+                <use href="/assets/icons.svg#pencil" />
+              </svg>
+              <span class="sr-only">Edit Link</span>
+            </button>
+          </div>
+        </ng-container>
+      </div>
+    </li>
+    <!-- END: My Link Item-->
+  </ul>
+  <!-- END: My Links List -->
+
+  <!-- BEGIN: My Links Footer -->
+  <div class="card-footer">
+    <div class="ml-add-item">
+      <button type="button" class="btn btn-link" (click)="openCreateLinkModal()">
+        <svg class="ml-icon ml-icon-navigation-plus" focusable="false" role="presentation">
+          <use href="/assets/icons.svg#navigation-plus" />
+        </svg>
+        <span>Add link item</span>
+      </button>
+    </div>
+  </div>
+  <!-- END: My Links Footer -->
+
+</div>

@@ -1,5 +1,44 @@
 /* Icons
 ****************************************************/
+// .ml-icon {
+//   align-items: center;
+//   border-radius: .25rem;
+//   cursor: pointer;
+//   display: flex;
+//   height: 2rem;
+//   line-height: 2rem;
+//   width: 2rem;
+//   font-size: 16px;
+//   font-weight: 400;
+//   justify-content: center;
+//   line-height: 24px;
+//   padding: 0;
+//   text-transform: none;
+//   vertical-align: baseline;
+//   background-color: transparent;
+//   border-color: transparent;
+//   color: #6b6c7e;
+//   transition: 
+//     color .15s ease-in-out,
+//     background-color .15s ease-in-out,
+//     border-color .15s ease-in-out,
+//     box-shadow .15s ease-in-out;
+//   overflow: hidden;
+//   text-decoration: none;
+
+//   svg {
+//     margin-top: 0;
+//     overflow: hidden;
+//     display: inline-block;
+//     fill:  #6b6c7e;
+//     height: 1em;
+//     pointer-events: none;
+//     vertical-align: middle;
+//     width: 1em;
+//     cursor: pointer;
+//   }
+// }
+
 .ml-icon {
 
   display: inline-block;
@@ -24,8 +63,7 @@
   &.ml-icon-arrow-chevron-thin-right {
     height: 22px;
     width: 22px;
-    padding: 2px 0;
-
+    padding: 1px 0;
   }
 
   &.ml-icon-cog {
@@ -46,6 +84,7 @@
     height: 0.75rem;
     width: 0.75rem;
     fill: $primary;
+    margin-left: 5px;
   }
 
 }

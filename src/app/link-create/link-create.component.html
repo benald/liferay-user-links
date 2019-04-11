@@ -27,11 +27,11 @@
     <!-- BEGIN: TITLE -->
     <div class="form-group">
       <div class="form-row">
-        <div class="col-7">
+        <div class="col-9">
 
           <label for="mlTitle" class="mlLabel">Link Title<span>*</span></label>
           <input type="text" [(ngModel)]="linkDetails.title" id="mlTitle" class="form-control" name="title" placeholder="e.g. Google search" minlength="3" appForbiddenName="title" #title="ngModel" required>
-          <div *ngIf="title.invalid && (title.dirty || title.touched)" class="invalid-feedback alert bg-danger text-white">
+          <div *ngIf="title.invalid && (title.dirty || title.touched)" class="invalid-feedback alert text-danger">
             <div *ngIf="title.errors.required">Title is required.</div>
             <div *ngIf="title.errors.minlength">Title must be at least 3 characters long.</div>
             <div *ngIf="title.errors.forbiddenName">Title cannot be Title.</div>
@@ -45,7 +45,7 @@
     <!-- BEGIN: URL -->
     <div class="form-group">
       <div class="form-row">
-        <div class="col-7">
+        <div class="col-9">
 
           <label for="mlUrl" class="mlLabel">Web address<span>*</span></label>
           <input type="text" id="mlUrl" [(ngModel)]="linkDetails.url" name="mlUrl" class="form-control" placeholder="e.g. https://google.com" required pattern="https?://.+" #url="ngModel" required>
@@ -55,7 +55,7 @@
           </div>
 
         </div>
-        <div class="col-3">
+        <div class="col-2">
 
           <button type="button" class="btn btn-link btn-icon-info" placement="right" tooltip="Please enter the full URL. (including protocol ie: http, https, ftp)">
             <svg class="ml-icon ml-icon-information-outline" focusable="false" role="presentation">

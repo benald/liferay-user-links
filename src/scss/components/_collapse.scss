@@ -1,12 +1,29 @@
 .collapse {
-  transition: all 1s ease 250ms;
+  
+  // @include zoomOut(
+  //   $duration: 150ms,
+  //   $delay: 0ms,
+  //   $function: ease-in-out,
+  //   $fill: both
+  // );
+  
   &.in {
-    @include fadeIn(
-    $duration: 50ms,
-    $delay: 0s,
-    $function: ease-in-out,
-    $fill: both
-  );
+
+    // @include zoomIn(
+    //   $duration: 150ms,
+    //   $delay: 0ms,
+    //   $function: ease-in-out,
+    //   $fill: both
+    // );
+
+    @include bounceInUp(
+      $duration: 250ms,
+      $delay: 0ms,
+      $function: ease-in,
+      $fill: both
+    );
+
   }
+  
 
 }

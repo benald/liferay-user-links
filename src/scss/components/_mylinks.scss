@@ -6,9 +6,10 @@
   margin: 100px auto 0;
 }
 
-.ml {
+.my-links, .ml {
 
   font-size: 13px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .ml-float {
@@ -68,10 +69,11 @@
   justify-content: center;
 }
 
-.ml-section {
+.ml-section,
+.ml-section-title {
 
   max-width: 100%;
-  padding-left: 15px;
+  font-family: inherit;
 
   a {
     color: $primary;
@@ -84,7 +86,14 @@
       text-decoration: underline;
     }
   }
+}
 
+.ml-section-title {
+  padding-left:   15px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1.5px;
 }
 
 .ml-info-circle {
@@ -109,18 +118,22 @@
   border: 0;
   border: 1px dashed #D7D7D7;
   line-height: 1.429;
-  margin: 0;
+  margin: 0 0 2px 0;
   padding: 0;
   position: relative;
   text-align: -webkit-match-parent;
   text-align: center;
 
-  a {
-      text-decoration: none;
-      color: #007b84;
+  .btn-link {
 
       &:hover {
           text-decoration: underline;
+      }
+      span {
+        text-decoration: none;
+        margin-top: 3px;
+        font-size: 13px;
+        color: $primary;
       }
   }
 
