@@ -3,6 +3,7 @@ import { ModalComponent } from '../modal/modal.component';
 import { RestApiService } from '../shared/rest-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { UserLinksComponent } from '../user-links/user-links.component';
 
 @Component({
   selector: 'app-link-delete',
@@ -13,6 +14,7 @@ export class LinkDeleteComponent implements OnInit {
 
    message: string;
    linkObject: any;
+   userLinksObject: UserLinksComponent
 
    constructor(
      public restApi: RestApiService,
@@ -28,13 +30,12 @@ export class LinkDeleteComponent implements OnInit {
 
    delete() {
     this.restApi.deleteLink(this.linkObject.id).subscribe(data => {});
-    setTimeout(() => {
-      window.location.reload();
-    }, 10);
+    this.bsModalRef.hide();
+    this.modalService.onHide.subscribe(() => this.userLinksObject.loadLinks());
    }
    decline(): void {
     this.message = 'Declined!';
     this.bsModalRef.hide();
-    window.location.reload();
+    // window.location.reload();
   }
 }

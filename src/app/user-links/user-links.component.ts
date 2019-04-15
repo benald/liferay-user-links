@@ -86,7 +86,8 @@ export class UserLinksComponent implements OnInit {
   // Open Edit Link Modal
   openEditLinkModal(linkId: any) {
     const initialState = {
-      id: linkId
+      id: linkId,
+      userLinksObject: this
     };
     this.modalRef = this.modalService.show(LinkEditComponent, {initialState, class: 'modal-lg modal-dialog-centered'} );
   }
@@ -94,7 +95,8 @@ export class UserLinksComponent implements OnInit {
   // Open Delete Link Modal
   openDeleteLinkModal(link: any) {
     const initialState = {
-      linkObject: link
+      linkObject: link,
+      userLinksObject: this
     };
     this.modalRef = this.modalService.show(LinkDeleteComponent, {initialState, class: 'modal-lg modal-dialog-centered'} );
   }
