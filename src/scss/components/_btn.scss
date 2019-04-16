@@ -4,12 +4,17 @@
   border-color: transparent;
 }
 
+// Card Header Icons
 .btn-info,
-.btn-delete {
+.btn-cog {
 
   background: transparent;
   outline: 0;
   border: none;
+
+  svg {
+    fill: $header-icon-color;
+  }
 
   &:hover,
   &:focus,
@@ -17,7 +22,42 @@
     background: transparent;
     outline: 0;
     border: none;
+
+    svg {
+      fill: $white;
+    }
   }
+}
+
+// Link Item Icons
+.btn-delete,
+.btn-arrow,
+.btn-reorder,
+.btn-close   {
+
+  background: transparent;
+  outline: 0;
+  border: none;
+
+  svg {
+    fill: $link-icon-color;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: transparent;
+    outline: 0;
+    border: none;
+
+    svg {
+      fill: $link-icon-active-color;
+    }
+  }
+}
+
+.btn-arrow {
+  padding: 3px 9px;
 }
 
 .btn-icon-info {

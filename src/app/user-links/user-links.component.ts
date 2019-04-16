@@ -126,6 +126,7 @@ export class UserLinksComponent implements OnInit {
       return a.linkTitle.toLowerCase() > b.linkTitle.toLowerCase() ? 1 : -1;
      }
   }
+
   linksAvailable() {
      if (this.Link.length == 0) {
       return this.isCollapsed;
@@ -133,5 +134,4 @@ export class UserLinksComponent implements OnInit {
     else return !this.isCollapsed;
   }
  
-
 }

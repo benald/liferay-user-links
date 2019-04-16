@@ -15,80 +15,70 @@
 
   <div class="modal-body">
 
-    <div class="container-fluid">
+    <form id="editLinkForm" class="needs-validation" novalidate>
 
-      <form id="editeLinkForm" class="needs-validation" novalidate>
+      <label for="mlType" class="invisible">Link Type</label>
+      <input type="hidden" id="mlType" class="form-control" name="mlType">
 
-        <!-- div class="form-row">
-          <div class="col-12">
-            <p class="text-danger">{{ linkData | json }}</p>
-          </div>
-        </div-->
+      <div *ngIf="linkData.linkType === 'External'">
 
-        <label for="mlType" class="invisible">Link Type</label>
-        <input type="hidden" id="mlType" class="form-control" name="mlType">
+        <div class="form-row">
 
-        <div *ngIf="linkData.linkType === 'External'">
-
-          <div class="form-row">
-
-            <div class="form-group col-7">
-              <label for="mlTitle" class="mlLabel">Link Title<span>*</span></label>
-              <input  type="text" id="mlTitle" [(ngModel)]="linkData.title" 
-                      class="form-control" name="mlTitle" 
-                      placeholder="e.g. Google search" required>
-            </div>
-
-          </div>
-
-          <div class="form-row">
-
-            <div class="form-group col-7">
-              <label for="mlUrl" class="mlLabel">Web address<span>*</span></label>
-              <input  type="text" id="mlUrl" [(ngModel)]="linkData.url" 
-                      name="mlUrl" class="form-control" 
-                      placeholder="e.g. https://google.com" required>
-            </div>
-            <div class="form-group col-3">
-              <button type="button" class="btn btn-link" placement="right" tooltip="Please enter the full URL. (including protocol ie: http, https, ftp)">
-                <svg class="ml-icon ml-icon-information-outline" focusable="false" role="presentation">
-                    <use href="/assets/icons.svg#information-outline" />
-                  </svg>
-              </button>
-            </div>
-
+          <div class="form-group col-7">
+            <label for="mlTitle" class="mlLabel">Link Title<span>*</span></label>
+            <input  type="text" id="mlTitle" [(ngModel)]="linkData.title" 
+                    class="form-control" name="mlTitle" 
+                    placeholder="e.g. Google search" required>
           </div>
 
         </div>
 
-        <div *ngIf="linkData.linkType === 'Ikon'">
+        <div class="form-row">
 
-          <div class="form-row">
-            <div class="form-group col-7">
-              <label for="mlUUid" class="mlLabel">Service's published title</label><br />
-              <a id="mlUUid" href="{{ linkData.linkUUid }}">{{ linkData.title }}</a>
-            </div>
+          <div class="form-group col-7">
+            <label for="mlUrl" class="mlLabel">Web address<span>*</span></label>
+            <input  type="text" id="mlUrl" [(ngModel)]="linkData.url" 
+                    name="mlUrl" class="form-control" 
+                    placeholder="e.g. https://google.com" required>
           </div>
-
-          <div class="form-row">
-            <div class="form-group col-7">
-              <label for="mlLinkTitle" class="mlLabel">Custom title</label>
-              <input type="text" id="mlLinkTitle" [(ngModel)]="linkData.linkTitle" name="mlLinkTitle" class="form-control" placeholder="e.g. My custom title">
-            </div>
-            <div class="form-group col-3">
-              <button type="button" class="btn btn-link btn-icon-info" placement="right" tooltip="You can customise the title for your saved Ikon links.">
-                <svg class="ml-icon ml-icon-information-outline" focusable="false" role="presentation">
+          <div class="form-group col-3">
+            <button type="button" class="btn btn-link" placement="right" tooltip="Please enter the full URL. (including protocol ie: http, https, ftp)">
+              <svg class="ml-icon ml-icon-information-outline" focusable="false" role="presentation">
                   <use href="/assets/icons.svg#information-outline" />
                 </svg>
-              </button>
-            </div>
+            </button>
           </div>
 
         </div>
 
-      </form>
+      </div>
 
-    </div>
+      <div *ngIf="linkData.linkType === 'Ikon'">
+
+        <div class="form-row">
+          <div class="form-group col-7">
+            <label for="mlUUid" class="mlLabel">Service's published title</label><br />
+            <a id="mlUUid" href="{{ linkData.linkUUid }}">{{ linkData.title }}</a>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-7">
+            <label for="mlLinkTitle" class="mlLabel">Custom title</label>
+            <input type="text" id="mlLinkTitle" [(ngModel)]="linkData.linkTitle" name="mlLinkTitle" class="form-control" placeholder="e.g. My custom title">
+          </div>
+          <div class="form-group col-3">
+            <button type="button" class="btn btn-link btn-icon-info" placement="right" tooltip="You can customise the title for your saved Ikon links.">
+              <svg class="ml-icon ml-icon-information-outline" focusable="false" role="presentation">
+                <use href="/assets/icons.svg#information-outline" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </form>
 
   </div>
 

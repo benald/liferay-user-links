@@ -1,5 +1,27 @@
-<div class="modal-body text-center">
-    <p>Are you sure you want to delete the link '{{linkObject.title}}'</p>
-    <button type="button" class="btn btn-default" (click)="decline()" >Cancel</button>
-    <button type="button" class="btn btn-primary" (click)="delete()" >Delete</button>
+<!-- BEGIN: MODAL HEADER -->
+<div class="modal-header">
+  <div class="modal-title">Delete link {{ linkObject.title }}</div>
+  <button type="button" class="close-modal" aria-label="Close" (click)="decline()">
+    <svg class="ml-icon ml-icon-navigation-close" focusable="false" role="presentation">
+      <use href="/assets/icons.svg#navigation-close" />
+    </svg>
+  </button>
+</div>
+<!-- END: MODAL HEADER -->
+
+<form id="linkDeleteForm">
+
+  <!-- BEGIN: MODAL BODY -->
+  <div class="modal-body">
+    <p>Are you sure you want to delete the link '{{linkObject.title}}'?</p>
   </div>
+  <!-- END: MODAL BODY -->
+
+  <!-- BEGIN: MODAL FOOTER -->
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="decline()">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="delete()">Delete</button>
+  </div>
+  <!-- END: MODAL FOOTER -->
+
+</form>
