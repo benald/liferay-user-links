@@ -2,6 +2,8 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { AppConstants } from '../shared/constants';
 import { RestApiService } from '../shared/rest-api.service';
+import { UserLinksComponent } from '../user-links/user-links.component';
+import { LinkEditComponent } from '../link-edit/link-edit.component';
 
 @Component({
   selector: 'app-modal',
@@ -11,6 +13,9 @@ import { RestApiService } from '../shared/rest-api.service';
 export class ModalComponent implements OnInit {
 
   id2: any;
+  bsModalRefLinkEdit: BsModalRef;
+  userLinksObjectInLinkEdit: UserLinksComponent;
+  linkEditObject: LinkEditComponent;
 
   constructor(
     public bsModalRef: BsModalRef,
@@ -24,8 +29,7 @@ export class ModalComponent implements OnInit {
   Link: any = [];
 
   ngOnInit() {
-    console.log(this.id2);
-    console.log(this.linkData2);
+    console.log(this.bsModalRefLinkEdit);
   }
 
   loadLinks() {
@@ -35,26 +39,19 @@ export class ModalComponent implements OnInit {
   }
 
   confirm(): void {
-    console.log(this.linkData2);
+    console.log(this.bsModalRefLinkEdit);
     this.message = 'Confirmed!';
+    this.restApi.updateLink(this.id2, this.linkData2).subscribe(data => {});
     this.bsModalRef.hide();
-    if (this.className === 'LinkEditComponent') {
-      this.restApi.updateLink(this.id2, this.linkData2).subscribe(data => {});
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
-    } else if (this.className === 'LinkDeleteComponent') {
-      this.restApi.deleteLink(this.id2).subscribe(data => {});
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
-    }
+    // hiding the previous modal
+    this.linkEditObject.hide();
+    this.modalService.onHide.subscribe(() => this.userLinksObjectInLinkEdit.loadLinks());
+  
   }
 
   decline(): void {
     this.message = 'Declined!';
     this.bsModalRef.hide();
-    window.location.reload();
   }
   
 }

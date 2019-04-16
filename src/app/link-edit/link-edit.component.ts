@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal/';
 import { ModalComponent } from '../modal/modal.component';
 import { AppConstants } from '../shared/constants';
+import { UserLinksComponent } from '../user-links/user-links.component';
 
 @Component({
   selector: 'app-link-edit',
@@ -17,6 +18,8 @@ export class LinkEditComponent implements OnInit {
   id: any;
   message: string;
   linkData: any = {};
+  userLinksObject: UserLinksComponent;
+  bsModalRefLocalCopy: BsModalRef;
 
   // selectedValue: '';
 
@@ -32,14 +35,21 @@ export class LinkEditComponent implements OnInit {
     this.restApi.getLink(this.id).subscribe((data: {}) => {
       this.linkData = data;
     });
+    // creating a copy of bsModalRef
+    this.bsModalRefLocalCopy = this.bsModalRef;
   }
 
    openModalWithComponent() {
     const initialState = {
       id2: this.id,
       linkData2: this.linkData,
-      className: 'LinkEditComponent'
+      bsModalRefLinkEdit: this.bsModalRef,
+      userLinksObjectInLinkEdit: this.userLinksObject,
+      linkEditObject: this
     };
     this.bsModalRef = this.modalService.show(ModalComponent, {initialState});
+  }
+  hide () {
+    this.bsModalRefLocalCopy.hide();
   }
 }

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { RestApiService } from '../shared/rest-api.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Refreshable } from '../shared/refreshable';
+import { UserLinksComponent } from '../user-links/user-links.component';
 
 
 @Component({
@@ -19,6 +20,8 @@ export class LinkCreateComponent implements OnInit, Refreshable {
 
   linkDetails = {  id: 0,  linkType: 'External', url: '', title: '', linkUUid: 0,  linkTitle: '' };
 
+  userLinksObject: UserLinksComponent;
+
   refresh() {
     this.restApi.getLinks().subscribe((data: {}) => {});
   }
@@ -26,7 +29,8 @@ export class LinkCreateComponent implements OnInit, Refreshable {
   constructor(
     public restApi: RestApiService,
     public router: Router,
-    private modalRef: BsModalRef
+    private modalRef: BsModalRef,
+    private modalService: BsModalService
   ) { }
 
   ngOnInit() { }
@@ -34,7 +38,7 @@ export class LinkCreateComponent implements OnInit, Refreshable {
   addLink(dataLink) {
     this.restApi.createLink(this.linkDetails).subscribe((data: {}) => {
       this.modalRef.hide();
-      window.location.reload();
+      this.modalService.onHide.subscribe(() => this.userLinksObject.loadLinks());
     });
   }
 

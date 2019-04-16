@@ -80,7 +80,10 @@ export class UserLinksComponent implements OnInit {
 
   // Open Create Link Modal
   openCreateLinkModal() {
-    this.modalRef = this.modalService.show(LinkCreateComponent, { class: 'modal-lg modal-dialog-centered' });
+    const initialState = {
+      userLinksObject: this
+    };
+    this.modalRef = this.modalService.show(LinkCreateComponent, { initialState,  class: 'modal-lg modal-dialog-centered' });
   }
 
   // Open Edit Link Modal
