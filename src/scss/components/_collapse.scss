@@ -1,22 +1,8 @@
 .collapse {
-  
-  // @include zoomOut(
-  //   $duration: 150ms,
-  //   $delay: 0ms,
-  //   $function: ease-in-out,
-  //   $fill: both
-  // );
-  
+
   &.in {
 
-    // @include zoomIn(
-    //   $duration: 150ms,
-    //   $delay: 0ms,
-    //   $function: ease-in-out,
-    //   $fill: both
-    // );
-
-    @include bounceInUp(
+    @include fadeIn(
       $duration: 250ms,
       $delay: 0ms,
       $function: ease-in,
@@ -25,5 +11,4 @@
 
   }
   
-
 }

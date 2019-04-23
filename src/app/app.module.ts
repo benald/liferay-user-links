@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalModule, CollapseModule, SortableModule, TooltipModule  } from 'ngx-bootstrap';
 import { OrderModule } from 'ngx-order-pipe';
+import { APP_BASE_HREF } from '@angular/common';
 
 // HttpClient module for RESTful API
 import { HttpClientModule } from '@angular/common/http';
@@ -23,6 +24,8 @@ import { LinkDeleteComponent } from './link-delete/link-delete.component';
 import { LinkSettingsComponent } from './link-settings/link-settings.component';
 import { ExternalUrlDirective } from './shared/external-url.directive';
 import { ModalComponent } from './modal/modal.component';
+
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,11 @@ import { ModalComponent } from './modal/modal.component';
     SortableModule.forRoot(),
     TooltipModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    {provide: APP_BASE_HREF, useValue : '/' }, 
+    {provide: 'APIURL', useValue: environment.apiUrl },
+    {provide: 'ASSETURL', useValue: environment.assetUrl } 
+  ],
   bootstrap: [
     AppComponent,
     ModalComponent,

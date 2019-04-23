@@ -1,8 +1,15 @@
-.card {
+.ml-card {
 
-  .card-header {
-    padding: 6px 5px;
+  box-shadow: none;
+  margin-bottom: 20px;
+
+  .ml-card-header {
+    background: #5e5e5e;
+    border: none;
+    border-radius: 3px 3px 0 0;
+    padding: 15px 10px 15px 20px ;
     z-index: 999;
+    color: $white;
 
     .ml-section {
       text-transform: uppercase;
@@ -11,13 +18,45 @@
     }
   }
 
-  .card-body {
+  .ml-card-body {
     
     position: relative;
     padding: 15px 10px;
 
-    .info-panel {
+    .ml-info-panel {
+
       z-index: 888;
+
+      .ml-info-panel-icon {
+
+        max-width: 100%;
+        padding: 10px 0;
+        margin: 0 auto;
+      
+      }
+      
+      // Info Panel Add link item btn
+      .ml-info-panel-content {
+      
+        position: relative;
+        text-align: center;
+        max-width: 100%;
+        padding: 10px;
+           
+        #addLink {
+      
+          @include media-breakpoint-up(sm) {
+            position: absolute;
+            bottom: 10px;
+          }
+      
+          &.btn-link {
+            text-decoration: underline;
+          }
+      
+        }
+       
+      }
     }
 
     .btn-close {
@@ -26,28 +65,24 @@
       z-index: 999;
     }
 
-    .card-info {
+    .ml-card-info {
 
       h3 {
-        margin: 20px 0 5px 0;
+        margin: 5px 0 5px 0;
       }
       p {
         margin: 0 0 10px 0;
       }
     }
-
-    
-
-    
     
   }
 
-  .list-group {
+  .ml-list-group {
     margin: 0;
     padding: 0;
   }
 
-  .card-footer {
+  .ml-card-footer {
     background: transparent;
     border-bottom: 1px dotted #d7d7d7;
     padding: 1px;
@@ -56,10 +91,3 @@
 
 }
 
-
-@include media-breakpoint-up(sm) {
-  .add-link {
-    margin-top: 50px;
-    
-  }
-}

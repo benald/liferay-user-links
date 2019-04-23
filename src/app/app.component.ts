@@ -1,18 +1,20 @@
 import { Component } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { ModalComponent } from './modal/modal.component';
+import { environment } from '../environments/environment';
 import { LinkCreateComponent } from './link-create/link-create.component';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-root-user-links',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
 
   title = 'user-links';
-  bsModalRef: BsModalRef;
+  
 
+  bsModalRef: BsModalRef;
+  
   constructor (
     private modalService: BsModalService
   ) {}

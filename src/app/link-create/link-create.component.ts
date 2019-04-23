@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { RestApiService } from '../shared/rest-api.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -14,8 +14,6 @@ import { UserLinksComponent } from '../user-links/user-links.component';
 
 export class LinkCreateComponent implements OnInit, Refreshable {
 
- // model: any = {};
-
   @Input()
 
   linkDetails = {  id: 0,  linkType: 'External', url: '', title: '', linkUUid: 0,  linkTitle: '' };
@@ -30,12 +28,13 @@ export class LinkCreateComponent implements OnInit, Refreshable {
     public restApi: RestApiService,
     public router: Router,
     private modalRef: BsModalRef,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    @Inject('ASSETURL') public ASSETURL
   ) { }
 
   ngOnInit() { }
 
-  addLink(dataLink) {
+  addLink() {
     this.restApi.createLink(this.linkDetails).subscribe((data: {}) => {
       this.modalRef.hide();
       this.modalService.onHide.subscribe(() => this.userLinksObject.loadLinks());
@@ -45,4 +44,5 @@ export class LinkCreateComponent implements OnInit, Refreshable {
   decline(): void {
     this.modalRef.hide();
   }
+
 }

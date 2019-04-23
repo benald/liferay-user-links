@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ModalComponent } from '../modal/modal.component';
+import { Component, OnInit, Inject } from '@angular/core';
 import { RestApiService } from '../shared/rest-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -14,14 +13,16 @@ export class LinkDeleteComponent implements OnInit {
 
    message: string;
    linkObject: any;
-   userLinksObject: UserLinksComponent
+   isEditMode: any;
+   userLinksObject: UserLinksComponent;
 
    constructor(
      public restApi: RestApiService,
      public actRoute: ActivatedRoute,
      public router: Router,
      public bsModalRef: BsModalRef,
-     private modalService: BsModalService
+     private modalService: BsModalService,
+     @Inject('ASSETURL') public ASSETURL
    ) {
    }
 

@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { RestApiService } from '../shared/rest-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -21,7 +21,8 @@ export class LinkSettingsComponent implements OnInit {
     public modalRef: BsModalRef,
     public restApi: RestApiService,
     public actRoute: ActivatedRoute,
-    public router: Router
+    public router: Router,
+    @Inject('ASSETURL') public ASSETURL
   ) {
   }
 

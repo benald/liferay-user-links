@@ -1,6 +1,5 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { AppConstants } from '../shared/constants';
 import { RestApiService } from '../shared/rest-api.service';
 import { UserLinksComponent } from '../user-links/user-links.component';
 import { LinkEditComponent } from '../link-edit/link-edit.component';
@@ -53,5 +52,5 @@ export class ModalComponent implements OnInit {
     this.message = 'Declined!';
     this.bsModalRef.hide();
   }
-  
+
 }

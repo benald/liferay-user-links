@@ -1,0 +1,4 @@
+{
+    "/ikon/*": "/$1",
+    "/user-links/ikon/:linkUUid": "/user-links?linkUUid=:linkUUid"
+}

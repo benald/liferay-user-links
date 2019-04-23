@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 // import { RestApiService } from '../shared/rest-api.service';
 import { Info } from '../shared/info';
 
@@ -16,7 +16,7 @@ export class ListInformationComponent {
   };
 
   constructor(
-    // public restApi: RestApiService
+    @Inject('ASSETURL') public ASSETURL
   ) { }
 
 

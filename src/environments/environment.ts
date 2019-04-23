@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // assetUrl: '/assets',
+  // apiUrl: 'http://localhost:3000',
+  assetUrl: '/p13n-ui/user-links/assets',
+  apiUrl: '/p13n-ws'
 };
 
 /*

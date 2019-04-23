@@ -1,9 +1,9 @@
 <!-- BEGIN: MODAL HEADER -->
-<div class="modal-header">
+<div class="ml-modal-header">
   <div class="modal-title">Add custom link item</div>
   <button type="button" class="close-modal" aria-label="Close" (click)="decline()">
     <svg class="ml-icon ml-icon-navigation-close" focusable="false" role="presentation">
-        <use href="/assets/icons.svg#navigation-close" />
+        <use attr.xlink:href="{{ASSETURL + '/icons.svg#navigation-close' }}" />
       </svg>
   </button>
 </div>
@@ -13,7 +13,7 @@
 <form id="linkCreateForm" #linkCreateForm="ngForm" class="needs-validation" novalidate>
 
   <!-- BEGIN: MODAL BODY -->
-  <div class="modal-body">
+  <div class="ml-modal-body">
 
     <!-- BEGIN: DEV JSON OUTPUT -->
     <!-- <p class="text-danger">{{ linkDetails | json }}</p> -->
@@ -21,22 +21,20 @@
 
     <!-- BEGIN: HIDDEN LINKTYPE -->
     <label for="mlType" class="invisible">Link Type</label>
-    <input type="hidden" id="mlType" class="form-control" name="mlType" value="External">
+    <input type="hidden" id="mlType" class="ml-form-control" name="mlType" value="External">
     <!-- END: HIDDEN LINKTYPE -->
 
     <!-- BEGIN: TITLE -->
     <div class="form-group">
       <div class="form-row">
-        <div class="col-9">
-
+        <div class="col-8">
           <label for="mlTitle" class="mlLabel">Link Title<span>*</span></label>
-          <input type="text" [(ngModel)]="linkDetails.title" id="mlTitle" class="form-control" name="title" placeholder="e.g. Google search" minlength="3" appForbiddenName="title" #title="ngModel" required>
+          <input type="text" [(ngModel)]="linkDetails.title" id="mlTitle" class="ml-form-control" name="title" placeholder="e.g. Google search" minlength="3" appForbiddenName="title" #title="ngModel" required>
           <div *ngIf="title.invalid && (title.dirty || title.touched)" class="invalid-feedback alert text-danger">
             <div *ngIf="title.errors.required">Title is required.</div>
             <div *ngIf="title.errors.minlength">Title must be at least 3 characters long.</div>
             <div *ngIf="title.errors.forbiddenName">Title cannot be Title.</div>
           </div>
-
         </div>
       </div>
     </div>
@@ -45,24 +43,21 @@
     <!-- BEGIN: URL -->
     <div class="form-group">
       <div class="form-row">
-        <div class="col-9">
-
+        <div class="col-8">
           <label for="mlUrl" class="mlLabel">Web address<span>*</span></label>
-          <input type="text" id="mlUrl" [(ngModel)]="linkDetails.url" name="mlUrl" class="form-control" placeholder="e.g. https://google.com" required pattern="https?://.+" #url="ngModel" required>
-          <div *ngIf="url.invalid && (url.dirty || url.touched)" class="invalid-feedback alert bg-danger text-white">
+          <input type="text" id="mlUrl" [(ngModel)]="linkDetails.url" name="mlUrl" class="ml-form-control" placeholder="e.g. https://google.com" pattern="https?://.+" #url="ngModel" required>
+          <div *ngIf="url.invalid && (url.dirty || url.touched)" class="invalid-feedback alert text-danger">
             <div *ngIf="url.errors.required">Url is required.</div>
             <div *ngIf="url.errors.pattern">Must be Url format, try http:// or https://</div>
           </div>
 
         </div>
         <div class="col-2">
-
-          <button type="button" class="btn btn-link btn-icon-info" placement="right" tooltip="Please enter the full URL. (including protocol ie: http, https, ftp)">
+          <button type="button" class="ml-btn btn-link btn-icon-info" placement="right" tooltip="Please enter the full URL. (including protocol ie: http, https, ftp)">
             <svg class="ml-icon ml-icon-information-outline" focusable="false" role="presentation">
-                <use href="/assets/icons.svg#information-outline" />
+                <use attr.xlink:href="{{ASSETURL + '/icons.svg#information-outline' }}" />
               </svg>
           </button>
-          
         </div>
       </div>
     </div>
@@ -72,9 +67,9 @@
   <!-- END: MODAL BODY -->
 
   <!-- END: MODAL FOOTER -->
-  <div class="modal-footer">
-    <button type="button" class="btn btn-default" (click)="decline()">Cancel</button>
-    <button type="submit" class="btn btn-primary" (click)="addLink()" [disabled]="!linkCreateForm.form.valid">Create</button>
+  <div class="ml-modal-footer">
+    <button type="button" class="ml-btn btn-default" (click)="decline()">Cancel</button>
+    <button type="submit" class="ml-btn btn-primary" (click)="addLink()" [disabled]="!linkCreateForm.form.valid">Create</button>
   </div>
   <!-- END: MODAL FOOTER -->
 

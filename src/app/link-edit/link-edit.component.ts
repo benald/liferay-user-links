@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { RestApiService } from '../shared/rest-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal/';
@@ -28,7 +28,8 @@ export class LinkEditComponent implements OnInit {
     public actRoute:      ActivatedRoute,
     public router:        Router,
     public bsModalRef:    BsModalRef,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    @Inject('ASSETURL') public ASSETURL
   ) { }
 
   ngOnInit() {

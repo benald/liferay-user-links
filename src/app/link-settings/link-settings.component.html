@@ -1,12 +1,12 @@
-<div class="modal-header">
+<div class="ml-modal-header">
   <div class="modal-title">Manage My Links</div>
   <button type="button" class="close-modal" aria-label="Close" (click)="modalRef.hide()">
-    <svg class="ml-icon ml-icon-navigation-close" focusable="false" role="presentation">
-      <use href="/assets/icons.svg#navigation-close" />
-    </svg>
+      <svg class="ml-icon ml-icon-navigation-close" focusable="false" role="presentation">
+        <use attr.xlink:href="{{ASSETURL + '/icons.svg#navigation-close' }}" />
+      </svg>
   </button>
 </div>
-<div class="modal-body">
+<div class="ml-modal-body">
   <p>Select those items you want to remove from your saved My Links list. </p>
   <div class="row">
     <div class="col-sm-4" *ngFor="let link of Link">
@@ -14,9 +14,9 @@
         <div class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input" id="userlink-{{link.id}}">
           <label class="custom-control-label" for="userlink-{{link.id}}"><a id="xlink-{{ link.id }}" title="{{ link.title }}" [href]="link.url" target="_blank">{{ link.title }}</a></label>
-          <span class='inline-item'>
-            <svg aria-hidden='true' class='ml-icon ml-icon-external-link'>
-              <use href='/assets/icons.svg#external-link'></use>
+          <span class="inline-item">
+            <svg aria-hidden="true" class="ml-icon ml-icon-external-link">
+              <use attr.xlink:href="{{ASSETURL + '/icons.svg#external-link' }}" />
             </svg>
           </span>
         </div>
@@ -31,7 +31,7 @@
   </div>
   <p>You have selected 4 items to remove.</p>
 </div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-default" (click)="modalRef.hide()">Cancel</button>
-  <button type="submit" class="btn btn-primary" (click)="deleteSelected()">Remove</button>
+<div class="ml-modal-footer">
+  <button type="button" class="ml-btn btn-default" (click)="modalRef.hide()">Cancel</button>
+  <button type="submit" class="ml-btn btn-primary" (click)="deleteSelected()">Remove</button>
 </div>

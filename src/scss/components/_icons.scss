@@ -1,52 +1,10 @@
 /* Icons
 ****************************************************/
-// .ml-icon {
-//   align-items: center;
-//   border-radius: .25rem;
-//   cursor: pointer;
-//   display: flex;
-//   height: 2rem;
-//   line-height: 2rem;
-//   width: 2rem;
-//   font-size: 16px;
-//   font-weight: 400;
-//   justify-content: center;
-//   line-height: 24px;
-//   padding: 0;
-//   text-transform: none;
-//   vertical-align: baseline;
-//   background-color: transparent;
-//   border-color: transparent;
-//   color: #6b6c7e;
-//   transition: 
-//     color .15s ease-in-out,
-//     background-color .15s ease-in-out,
-//     border-color .15s ease-in-out,
-//     box-shadow .15s ease-in-out;
-//   overflow: hidden;
-//   text-decoration: none;
-
-//   svg {
-//     margin-top: 0;
-//     overflow: hidden;
-//     display: inline-block;
-//     fill:  #6b6c7e;
-//     height: 1em;
-//     pointer-events: none;
-//     vertical-align: middle;
-//     width: 1em;
-//     cursor: pointer;
-//   }
-// }
 
 .ml-icon {
 
   display: inline-block;
-  height: 20px;
-  width: 20px;
   fill: #B0B0B0;
-  padding:3px 5px;
-  margin-top: 0px;
   pointer-events: none;
   vertical-align: middle;
 
@@ -54,39 +12,80 @@
     fill: #505050;
   }
 
-  &.ml-icon-pencil,
   &.ml-icon-reorder,
   &.ml-icon-navigation-close {
     height: 18px;
     width: 18px;
+    padding: 5px;
+    fill: #B0B0B0 !important;
   }
+
+  &.ml-icon-pencil {
+    height: 16px;
+    width: 16px;
+    fill: #B0B0B0 !important;
+  }
+
   &.ml-icon-arrow-chevron-thin-right {
     height: 22px;
     width: 22px;
     padding: 1px 0;
+    fill: #7f7f7f;
   }
 
   &.ml-icon-cog {
+    height: 22px;
+    width: 22px;
     padding: 1px 2px;
     fill: #c7c7c7;
   }
 
   &.ml-icon-info-solid {
+    height: 22px;
+    width: 22px;
     fill: #505050;
   }
 
-  &.ml-icon-bookmark-solid {
-    height: 3em;
-    width: 3em;
+  &.ml-icon-information-outline,
+  &.ml-icon-information-solid {
+    height: 22px;
+    width: 22px;
+    fill: #505050;
   }
 
   &.ml-icon-external-link {
-    height: 0.75rem;
-    width: 0.75rem;
     fill: $primary;
     margin-left: 5px;
+    height: 10px;
+    width: 10px;
   }
 
+}
+
+// 
+.ml-info-circle .ml-icon-bookmark-solid {
+  height: 22px;
+  width: 22px;
+  fill: #505050;
+}
+
+.btn-icon-info .ml-icon-information-outline {
+  height: 22px;
+  width: 22px;
+  fill: #c7c7c7;
+}
+
+.ml-add-item .ml-icon-navigation-plus {
+  fill: #B0B0B0;
+  height: 22px;
+  width: 22px;
+  margin-right: 5px;
+}
+
+.btn-link .ml-icon-pencil {
+  height: 18px;
+  width: 18px;
+  fill: #B0B0B0 !important;
 }
 
 .ml-quick-action-item .ml-icon {

@@ -1,11 +1,22 @@
 .modal {
   font-family: $font-family-base;
 }
-.modal-header {
+.ml-modal-header {
+
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+
     .modal-title {
         font-weight: 700;
         color: $dark;
-        // font-family: $font-family-base;
     }
 }
 
@@ -19,12 +30,42 @@
         fill: $secondary;
     }
 }
-// .modal-body {
-//   label {
-//     font-family: $font-family-base;
-//   }
-// }
-.modal-footer {
+
+.ml-modal-body {
+
+    position: relative;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1rem;
+
+  a {
+
+    color: $primary;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+
+        color: darken($primary, 4%);
+        text-decoration: underline;
+    }
+  }
+}
+
+.ml-modal-footer {
+
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: 1rem;
+    border-top: 1px solid #dee2e6;
+    border-bottom-right-radius: .3rem;
+    border-bottom-left-radius: .3rem;
 
     .btn-default {
         background:     transparent;

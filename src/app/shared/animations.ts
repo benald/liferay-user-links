@@ -26,5 +26,5 @@ export class Animations {
         transition('closed => open', [
           animate('0.5s')
         ]),
-    ])
+    ]);
 }

@@ -1,7 +1,55 @@
+.ml-btn {
+  display: inline-block;
+  font-family: inherit;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  border: $btn-border-width solid transparent;
+  @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-line-height, $btn-border-radius);
+  @include transition($btn-transition);
+
+  @include hover {
+    color: darken($white, 2%);
+    text-decoration: none;
+  }
+
+  &:focus,
+  &.focus {
+    outline: 0;
+    box-shadow: none;
+  }
+
+  // Disabled comes first so active can properly restyle
+  &.disabled,
+  &:disabled {
+    opacity: 0.65;
+    @include box-shadow(none);
+  }
+
+}
+
+.btn-footer-link {
+  border-radius: 1px;
+  background-color: transparent;
+  border-color: transparent;
+  display: inline-block;
+  max-height: 40px;
+  color: $primary;
+  font-size: 13px;
+  &:hover,
+  &:focus,
+  &:active {
+    color: darken($primary, 2%);
+  }
+}
+
 .btn-link {
   border-radius: 1px;
   background-color: transparent;
   border-color: transparent;
+  display: inline-block;
+  max-height: 30px;
 }
 
 // Card Header Icons
@@ -11,6 +59,7 @@
   background: transparent;
   outline: 0;
   border: none;
+  box-shadow: none;
 
   svg {
     fill: $header-icon-color;
@@ -66,9 +115,4 @@
   left: 10px;
 }
 
-#addLink {
 
-  &.btn-link {
-    text-decoration: underline;
-  }
-}
